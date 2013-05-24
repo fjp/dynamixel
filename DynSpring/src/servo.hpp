@@ -7,6 +7,7 @@ class Servo
 {
 public:
     Servo(int const id);
+    Servo();
     ~Servo();
 
     void write_data(Data const& data) const;//, double load) const;

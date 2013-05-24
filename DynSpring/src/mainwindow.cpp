@@ -81,6 +81,10 @@ void MainWindow::UpdateData() {
         break;
     }
 
+    // Dynamixel ID
+    data_.set_id(ui_->sbID->value());
+    ui_->l_dynamixel_id->setText(QString::number(data_.id()));
+
     // Angle Limit
     data_.set_cw_angle_limit_l(ui_->hs_cw_angle_limit_l->value());
     data_.set_ccw_angle_limit_l(ui_->hs_ccw_angle_limit_l->value());
@@ -157,6 +161,8 @@ void MainWindow::UpdateData() {
 
 
 void MainWindow::set_data(Data const& data) {
+
+    ui_->l_dynamixel_id->setText(QString::number(data.id()));
 
     // Display read only informtion on UI
     ui_->l_present_pos_l->setText(QString::number(data.present_position_l()));

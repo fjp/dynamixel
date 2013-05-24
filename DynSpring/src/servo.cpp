@@ -9,6 +9,11 @@ Servo::Servo(int const id) {
     id_ = id;
 }
 
+Servo::Servo()
+{
+
+}
+
 Servo::~Servo() {
 
 }
@@ -16,7 +21,7 @@ Servo::~Servo() {
 void Servo::write_data(Data const& data) const {  // , double load) const{
 
     //static int goal_pos = data.goal_position_l();
-
+    int id_ = data.id();
 
     dxl_write_word(id_, 6, data.cw_angle_limit_l());
     //dxl_write_word(id_, 7, data.cw_angle_limit_h());
@@ -41,7 +46,7 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
     dxl_write_word(id_, 27, data.i_gain());
     dxl_write_word(id_, 28, data.p_gain());
 
-
+/*
     //PD-Control for goal position
 //    static double force_old = 0.0;
 //    double K_p = -0.04;
@@ -81,6 +86,8 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
 //
 //        qDebug() << goal_pos;
 //    }
+
+*/
 
     dxl_write_word(id_, 30, data.goal_position_l());
     //dxl_write_word(id_, 31, data.goal_position_h());
