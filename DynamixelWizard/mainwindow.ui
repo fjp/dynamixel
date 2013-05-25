@@ -11,12 +11,12 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>DynamixelWizard</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
-     <widget class="QTreeWidget" name="treeWidget">
+     <widget class="QTreeWidget" name="twFoundDynamixel">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>2</horstretch>
@@ -31,7 +31,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="QStackedWidget" name="swMain">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>8</horstretch>
@@ -41,7 +41,7 @@
       <property name="currentIndex">
        <number>1</number>
       </property>
-      <widget class="QWidget" name="page">
+      <widget class="QWidget" name="pageSettings">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QFrame" name="frame">
@@ -168,7 +168,7 @@
            <item>
             <widget class="QStackedWidget" name="swSelectedOption">
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="pageGoalPosition">
               <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -213,7 +213,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2">
+      <widget class="QWidget" name="pageConnection">
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
          <widget class="QFrame" name="frame_4">
@@ -287,7 +287,7 @@
               <item row="0" column="0">
                <widget class="QLabel" name="lTextSearching">
                 <property name="text">
-                 <string>Searching...</string>
+                 <string>Searching... ID:</string>
                 </property>
                </widget>
               </item>
@@ -300,14 +300,14 @@
                  </sizepolicy>
                 </property>
                 <property name="text">
-                 <string>Searching...</string>
+                 <string>1..45</string>
                 </property>
                </widget>
               </item>
               <item row="1" column="0" colspan="2">
                <widget class="QProgressBar" name="proBarSearching">
                 <property name="value">
-                 <number>24</number>
+                 <number>0</number>
                 </property>
                </widget>
               </item>
