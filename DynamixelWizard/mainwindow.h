@@ -3,10 +3,12 @@
 
 #include <QMainWindow>
 #include <QComboBox>
+#include <QTreeWidget>
 #include <QDebug>
 
 #include "dynamixel.h"
 #include "data.h"
+#include "servo.h"
 
 namespace Ui {
 class MainWindow;
@@ -33,13 +35,15 @@ public:
 
 private slots:
     void slotConnect(void);
+    void slotDynamixelSelected(QTreeWidgetItem*, int);
+    void slotSelectedControl(int, int);
     
 private:
     Ui::MainWindow *m_pUi;
 
     QComboBox* m_cbUSBPort;
 
-    Data* m_oData;
+    Data m_oData;
 
     int m_iConnection;
 };
