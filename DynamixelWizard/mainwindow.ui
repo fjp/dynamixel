@@ -534,6 +534,19 @@
             </widget>
            </item>
            <item>
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
             <widget class="QPushButton" name="pushButton">
              <property name="text">
               <string>Set Default</string>
@@ -598,6 +611,7 @@
           <zorder>pushButton</zorder>
           <zorder>swSelectedControl</zorder>
           <zorder>frame_3</zorder>
+          <zorder>verticalSpacer_2</zorder>
          </widget>
         </item>
        </layout>

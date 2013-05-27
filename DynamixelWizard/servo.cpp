@@ -118,31 +118,31 @@ Data& Servo::receive_data() const {
 
     /***** EEPROM *****/
     data.set_model_number_l(dxl_read_word(id_, 0));
-    data.set_firmware_version(dxl_read_word(id_, 2));
+    data.set_firmware_version(dxl_read_byte(id_, 2));
 
-    data.set_id(dxl_read_word(id_, 3));
-    data.set_baud_rate(dxl_read_word(id_, 4));
-    data.set_return_delay_time(dxl_read_word(id_, 5));
+    data.set_id(dxl_read_byte(id_, 3));
+    data.set_baud_rate(dxl_read_byte(id_, 4));
+    data.set_return_delay_time(dxl_read_byte(id_, 5));
 
     data.set_cw_angle_limit_l(dxl_read_word(id_, 6));
     data.set_ccw_angle_limit_l(dxl_read_word(id_, 8));
 
-    data.set_highest_temp_limit(dxl_read_word(id_, 11));
-    data.set_lowest_voltage_limit(dxl_read_word(id_, 12));
-    data.set_highest_voltage_limit(dxl_read_word(id_, 13));
+    data.set_highest_temp_limit(dxl_read_byte(id_, 11));
+    data.set_lowest_voltage_limit(dxl_read_byte(id_, 12));
+    data.set_highest_voltage_limit(dxl_read_byte(id_, 13));
 
     data.set_max_torque_l(dxl_read_word(id_, 14));
-    data.set_status_return_level(dxl_read_word(id_, 16));
-    data.set_alarm_led(dxl_read_word(id_, 17));
-    data.set_alarm_shutdown(dxl_read_word(id_, 18));
+    data.set_status_return_level(dxl_read_byte(id_, 16));
+    data.set_alarm_led(dxl_read_byte(id_, 17));
+    data.set_alarm_shutdown(dxl_read_byte(id_, 18));
 
     /***** RAM *****/
-    data.set_torque_enable(dxl_read_word(id_, 24));
-    data.set_led(dxl_read_word(id_, 25));
+    data.set_torque_enable(dxl_read_byte(id_, 24));
+    data.set_led(dxl_read_byte(id_, 25));
 
-    data.set_d_gain(dxl_read_word(id_, 26));
-    data.set_i_gain(dxl_read_word(id_, 27));
-    data.set_p_gain(dxl_read_word(id_, 28));
+    data.set_d_gain(dxl_read_byte(id_, 26));
+    data.set_i_gain(dxl_read_byte(id_, 27));
+    data.set_p_gain(dxl_read_byte(id_, 28));
 
     data.set_goal_position_l(dxl_read_word(id_, 30));
     data.set_moving_speed_l(dxl_read_word(id_, 32));
@@ -157,19 +157,19 @@ Data& Servo::receive_data() const {
     data.set_present_load_l(dxl_read_word(id_, 40));
     //data.set_present_load_h(dxl_read_word(id_, 41));
 
-    data.set_present_voltage(dxl_read_word(id_, 42));
+    data.set_present_voltage(dxl_read_byte(id_, 42));
 
-    data.set_present_temp(dxl_read_word(id_, 43));
+    data.set_present_temp(dxl_read_byte(id_, 43));
 
-    data.set_registered(dxl_read_word(id_, 44));
+    data.set_registered(dxl_read_byte(id_, 44));
 
-    data.set_moving(dxl_read_word(id_, 46));
+    data.set_moving(dxl_read_byte(id_, 46));
 
-    data.set_lock(dxl_read_word(id_, 47));
+    data.set_lock(dxl_read_byte(id_, 47));
 
     data.set_punch_l(dxl_read_word(id_, 48));
 
-    data.set_goal_acceleration(dxl_read_word(id_, 73));
+    data.set_goal_acceleration(dxl_read_byte(id_, 73));
 
     return data;
 }

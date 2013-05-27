@@ -144,13 +144,21 @@ void MainWindow::slotDynamixelSelected(QTreeWidgetItem* qtwiItem, int iColumn)
 
 }
 
-void MainWindow::slotSelectedControl(int col, int row)
+void MainWindow::slotSelectedControl(int row, int col)
 {
-    qDebug() << "Column" << col;
     qDebug() << "Row" << row;
+    qDebug() << "Column" << col;
 
     // TODO sort pages in StackedWidget swSelectedControl accordingly -> page Order in designer
-    m_pUi->swSelectedControl->setCurrentIndex(col);
+//    switch (row)
+//    {
+//        case 0:
+//    case 1:
+
+
+//    }
+
+//    m_pUi->swSelectedControl->setCurrentIndex(row);
 }
 
 void MainWindow::set_data()

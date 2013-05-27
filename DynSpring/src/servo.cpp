@@ -95,7 +95,7 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
     dxl_write_word(id_, 32, data.moving_speed_l());
     //dxl_write_word(id_, 33, data.moving_speed_h());
 
-    dxl_write_word(id_, 34, data.torque_limit_l());
+    //dxl_write_word(id_, 34, data.torque_limit_l());
     //dxl_write_word(id_, 35, data.torque_limit_h());
 
     //dxl_write_word(id_, 47, data.lock());
