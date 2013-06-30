@@ -1,7 +1,7 @@
 #ifndef SERVO_HPP
 #define SERVO_HPP
 
-#include "data.hpp"
+#include "data.h"
 
 class Servo
 {
@@ -11,7 +11,7 @@ public:
     ~Servo();
 
     void write_data(Data const& data) const;//, double load) const;
-    Data receive_data() const;
+    Data& receive_data() const;
 
 private:
     // Returns the desired load that is applied to force the sensor the get back to the goal position

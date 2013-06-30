@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
     int id = 0;
 
     // Servo object
-    Servo servo(id);
+    //Servo servo(id);
+    Servo servo;
 
     // Contains all caputred data
     Data data;

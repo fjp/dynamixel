@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>894</width>
+    <height>1166</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DynamixelWizard</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QTreeWidget" name="trwFoundDynamixel">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>2</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="columnCount">
+       <number>1</number>
+      </property>
+      <column>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="swMain">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>8</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="pageSettings">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QFrame" name="frame">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>6</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QTableWidget" name="tawControlTable">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>6</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="editTriggers">
+              <set>QAbstractItemView::NoEditTriggers</set>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <property name="rowCount">
+              <number>32</number>
+             </property>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <row/>
+             <column>
+              <property name="text">
+               <string/>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Address</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Description</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Value</string>
+              </property>
+             </column>
+             <item row="0" column="0"/>
+             <item row="0" column="1">
+              <property name="text">
+               <string>0 (0X00)</string>
+              </property>
+             </item>
+             <item row="0" column="2">
+              <property name="text">
+               <string>Model Number (R)</string>
+              </property>
+             </item>
+             <item row="1" column="1">
+              <property name="text">
+               <string>2 (0X02)</string>
+              </property>
+             </item>
+             <item row="1" column="2">
+              <property name="text">
+               <string>Information on the version of firmware (R)</string>
+              </property>
+             </item>
+             <item row="2" column="1">
+              <property name="text">
+               <string>3 (0X03)</string>
+              </property>
+             </item>
+             <item row="2" column="2">
+              <property name="text">
+               <string>ID of Dynamixel (RW)</string>
+              </property>
+             </item>
+             <item row="3" column="1">
+              <property name="text">
+               <string>4 (0X04)</string>
+              </property>
+             </item>
+             <item row="3" column="2">
+              <property name="text">
+               <string>Baud Rate of Dynamixel (RW)</string>
+              </property>
+             </item>
+             <item row="4" column="1">
+              <property name="text">
+               <string>5 (0X05)</string>
+              </property>
+             </item>
+             <item row="4" column="2">
+              <property name="text">
+               <string>Return Delay Time (RW)</string>
+              </property>
+             </item>
+             <item row="5" column="1">
+              <property name="text">
+               <string>6 (0X06)</string>
+              </property>
+             </item>
+             <item row="5" column="2">
+              <property name="text">
+               <string>Clockwise Angle Limit (RW)</string>
+              </property>
+             </item>
+             <item row="6" column="1">
+              <property name="text">
+               <string>8 (0X08)</string>
+              </property>
+             </item>
+             <item row="6" column="2">
+              <property name="text">
+               <string>Counterclockwise Angle Limit (RW)</string>
+              </property>
+             </item>
+             <item row="7" column="1">
+              <property name="text">
+               <string>11 (0X0B)</string>
+              </property>
+             </item>
+             <item row="7" column="2">
+              <property name="text">
+               <string>Internal Limit Temperature (RW)</string>
+              </property>
+             </item>
+             <item row="8" column="1">
+              <property name="text">
+               <string>12 (0X0C)</string>
+              </property>
+             </item>
+             <item row="8" column="2">
+              <property name="text">
+               <string>Lowest Limit Voltage (RW)</string>
+              </property>
+             </item>
+             <item row="9" column="1">
+              <property name="text">
+               <string>13 (0X0D)</string>
+              </property>
+             </item>
+             <item row="9" column="2">
+              <property name="text">
+               <string>Highest Limit Voltage (RW)</string>
+              </property>
+             </item>
+             <item row="10" column="1">
+              <property name="text">
+               <string>14 (0X0E)</string>
+              </property>
+             </item>
+             <item row="10" column="2">
+              <property name="text">
+               <string>Max. Torque (RW)</string>
+              </property>
+             </item>
+             <item row="11" column="1">
+              <property name="text">
+               <string>16 (0X10)</string>
+              </property>
+             </item>
+             <item row="11" column="2">
+              <property name="text">
+               <string>Status Return Level (RW)</string>
+              </property>
+             </item>
+             <item row="12" column="1">
+              <property name="text">
+               <string>17 (0X11)</string>
+              </property>
+             </item>
+             <item row="12" column="2">
+              <property name="text">
+               <string>LED for Alarm (RW)</string>
+              </property>
+              <property name="background">
+               <brush brushstyle="NoBrush">
+                <color alpha="255">
+                 <red>105</red>
+                 <green>175</green>
+                 <blue>255</blue>
+                </color>
+               </brush>
+              </property>
+             </item>
+             <item row="13" column="1">
+              <property name="text">
+               <string>18 (0X12)</string>
+              </property>
+             </item>
+             <item row="13" column="2">
+              <property name="text">
+               <string>Shutdown for Alarm (RW)</string>
+              </property>
+             </item>
+             <item row="14" column="1">
+              <property name="text">
+               <string>24 (0X18)</string>
+              </property>
+             </item>
+             <item row="14" column="2">
+              <property name="text">
+               <string>Torque On/Off (RW)</string>
+              </property>
+             </item>
+             <item row="15" column="1">
+              <property name="text">
+               <string>25 (0X19)
+</string>
+              </property>
+             </item>
+             <item row="15" column="2">
+              <property name="text">
+               <string>LED On/Off (RW)</string>
+              </property>
+             </item>
+             <item row="16" column="1">
+              <property name="text">
+               <string>26 (0X1A)</string>
+              </property>
+             </item>
+             <item row="16" column="2">
+              <property name="text">
+               <string>Derivative Gain (RW)</string>
+              </property>
+             </item>
+             <item row="17" column="1">
+              <property name="text">
+               <string>27 (0X1B)</string>
+              </property>
+             </item>
+             <item row="17" column="2">
+              <property name="text">
+               <string>Integral Gain (RW)</string>
+              </property>
+             </item>
+             <item row="18" column="1">
+              <property name="text">
+               <string>28 (0X1C)</string>
+              </property>
+             </item>
+             <item row="18" column="2">
+              <property name="text">
+               <string>Proportional Gain (RW)</string>
+              </property>
+             </item>
+             <item row="19" column="1">
+              <property name="text">
+               <string>30 (0X1E)</string>
+              </property>
+             </item>
+             <item row="19" column="2">
+              <property name="text">
+               <string>Goal Position (RW)</string>
+              </property>
+             </item>
+             <item row="20" column="1">
+              <property name="text">
+               <string>32 (0X20)</string>
+              </property>
+             </item>
+             <item row="20" column="2">
+              <property name="text">
+               <string>Moving Speed (RW)</string>
+              </property>
+             </item>
+             <item row="21" column="1">
+              <property name="text">
+               <string>34 (0X22)</string>
+              </property>
+             </item>
+             <item row="21" column="2">
+              <property name="text">
+               <string>Torque Limit (RW)</string>
+              </property>
+             </item>
+             <item row="22" column="1">
+              <property name="text">
+               <string>36 (0X24)</string>
+              </property>
+             </item>
+             <item row="22" column="2">
+              <property name="text">
+               <string>Current Position (R)</string>
+              </property>
+             </item>
+             <item row="23" column="1">
+              <property name="text">
+               <string>38 (0X26)</string>
+              </property>
+             </item>
+             <item row="23" column="2">
+              <property name="text">
+               <string>Current Speed (R)</string>
+              </property>
+             </item>
+             <item row="24" column="1">
+              <property name="text">
+               <string>40 (0X28)</string>
+              </property>
+             </item>
+             <item row="24" column="2">
+              <property name="text">
+               <string>Current Load (R)</string>
+              </property>
+             </item>
+             <item row="25" column="1">
+              <property name="text">
+               <string>42 (0X2A)</string>
+              </property>
+             </item>
+             <item row="25" column="2">
+              <property name="text">
+               <string>Current Voltage (R)</string>
+              </property>
+             </item>
+             <item row="26" column="1">
+              <property name="text">
+               <string>43 (0X2B)</string>
+              </property>
+             </item>
+             <item row="26" column="2">
+              <property name="text">
+               <string>Current Temperature (R)</string>
+              </property>
+             </item>
+             <item row="27" column="1">
+              <property name="text">
+               <string>44 (0X2C)</string>
+              </property>
+             </item>
+             <item row="27" column="2">
+              <property name="text">
+               <string>Means if Instruction is registered (R)</string>
+              </property>
+             </item>
+             <item row="28" column="1">
+              <property name="text">
+               <string>46 (0X2E)</string>
+              </property>
+             </item>
+             <item row="28" column="2">
+              <property name="text">
+               <string>Means if there is any movement (R)</string>
+              </property>
+             </item>
+             <item row="29" column="1">
+              <property name="text">
+               <string>47 (0X2F)</string>
+              </property>
+             </item>
+             <item row="29" column="2">
+              <property name="text">
+               <string>Locking EEPROM (RW)</string>
+              </property>
+             </item>
+             <item row="30" column="1">
+              <property name="text">
+               <string>48 (0X30)</string>
+              </property>
+             </item>
+             <item row="30" column="2">
+              <property name="text">
+               <string>Punch (RW)</string>
+              </property>
+             </item>
+             <item row="31" column="1">
+              <property name="text">
+               <string>73 (0X49)</string>
+              </property>
+             </item>
+             <item row="31" column="2">
+              <property name="text">
+               <string>Goal Acceleration (RW)</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox">
+             <property name="title">
+              <string>Status</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>ERROR</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QProgressBar" name="progressBar">
+                <property name="value">
+                 <number>24</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>3</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QGraphicsView" name="graphicsView"/>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_3">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton">
+             <property name="text">
+              <string>Set Default</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QStackedWidget" name="swSelectedControl">
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="page19GoalPosition">
+              <layout class="QVBoxLayout" name="verticalLayout_4">
+               <item>
+                <widget class="QGroupBox" name="gbSelectedOption">
+                 <property name="title">
+                  <string>gbSelectedOption</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_3">
+                  <item>
+                   <widget class="QDial" name="dialPosition"/>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="lValue">
+                    <property name="text">
+                     <string>TextLabel</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbCentralPosition">
+                    <property name="text">
+                     <string>Central Position</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page1TorqueLimit">
+              <widget class="QSlider" name="verticalSlider">
+               <property name="geometry">
+                <rect>
+                 <x>70</x>
+                 <y>80</y>
+                 <width>24</width>
+                 <height>160</height>
+                </rect>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+              </widget>
+             </widget>
+             <widget class="QWidget" name="page"/>
+            </widget>
+           </item>
+          </layout>
+          <zorder>graphicsView</zorder>
+          <zorder>pushButton</zorder>
+          <zorder>swSelectedControl</zorder>
+          <zorder>frame_3</zorder>
+          <zorder>verticalSpacer_2</zorder>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageConnection">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_4">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <widget class="QFrame" name="frame_6">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0" rowspan="4">
+               <widget class="QTableWidget" name="tableWidget_2"/>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="comboBox">
+                <item>
+                 <property name="text">
+                  <string>Basic Search</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>408</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="pushButton_3">
+                <property name="text">
+                 <string>Start Searching</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QPushButton" name="pushButton_4">
+                <property name="text">
+                 <string>Stop Searching</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_5">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="0">
+               <widget class="QLabel" name="lTextSearching">
+                <property name="text">
+                 <string>Searching... ID:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="lSearching">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>2</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>1..45</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QProgressBar" name="proBarSearching">
+                <property name="value">
+                 <number>0</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>894</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
