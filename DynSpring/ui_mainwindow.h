@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sun May 26 19:38:15 2013
+** Created: Tue May 28 17:13:28 2013
 **      by: Qt User Interface Compiler version 4.8.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -125,7 +125,7 @@ public:
     QFrame *line_9;
     QSpinBox *sbNumber;
     QLabel *l_moving_2;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QLabel *label_36;
@@ -361,7 +361,7 @@ public:
         hs_d_gain->setObjectName(QString::fromUtf8("hs_d_gain"));
         sizePolicy.setHeightForWidth(hs_d_gain->sizePolicy().hasHeightForWidth());
         hs_d_gain->setSizePolicy(sizePolicy);
-        hs_d_gain->setMaximum(255);
+        hs_d_gain->setMaximum(254);
         hs_d_gain->setValue(10);
         hs_d_gain->setOrientation(Qt::Horizontal);
 
@@ -387,7 +387,7 @@ public:
         hs_i_gain->setObjectName(QString::fromUtf8("hs_i_gain"));
         sizePolicy.setHeightForWidth(hs_i_gain->sizePolicy().hasHeightForWidth());
         hs_i_gain->setSizePolicy(sizePolicy);
-        hs_i_gain->setMaximum(255);
+        hs_i_gain->setMaximum(254);
         hs_i_gain->setValue(0);
         hs_i_gain->setOrientation(Qt::Horizontal);
 
@@ -413,7 +413,7 @@ public:
         hs_p_gain->setObjectName(QString::fromUtf8("hs_p_gain"));
         sizePolicy.setHeightForWidth(hs_p_gain->sizePolicy().hasHeightForWidth());
         hs_p_gain->setSizePolicy(sizePolicy);
-        hs_p_gain->setMaximum(255);
+        hs_p_gain->setMaximum(254);
         hs_p_gain->setValue(60);
         hs_p_gain->setOrientation(Qt::Horizontal);
 
@@ -876,10 +876,10 @@ public:
         l_moving_2->setSizePolicy(sizePolicy1);
         l_moving_2->setMinimumSize(QSize(37, 20));
         l_moving_2->setFont(font1);
-        widget = new QWidget(frame_3);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 10, 341, 67));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(frame_3);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 10, 341, 67));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -887,7 +887,7 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        label_36 = new QLabel(widget);
+        label_36 = new QLabel(layoutWidget);
         label_36->setObjectName(QString::fromUtf8("label_36"));
         label_36->setFont(font1);
         label_36->setLayoutDirection(Qt::RightToLeft);
@@ -898,7 +898,7 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        sbID = new QSpinBox(widget);
+        sbID = new QSpinBox(layoutWidget);
         sbID->setObjectName(QString::fromUtf8("sbID"));
         sbID->setMaximum(254);
 
@@ -910,7 +910,7 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        le_connection = new QLineEdit(widget);
+        le_connection = new QLineEdit(layoutWidget);
         le_connection->setObjectName(QString::fromUtf8("le_connection"));
         QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy2.setHorizontalStretch(235);
@@ -920,14 +920,14 @@ public:
 
         horizontalLayout_2->addWidget(le_connection);
 
-        lPower = new QLabel(widget);
+        lPower = new QLabel(layoutWidget);
         lPower->setObjectName(QString::fromUtf8("lPower"));
         lPower->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 0);"));
         lPower->setScaledContents(false);
 
         horizontalLayout_2->addWidget(lPower);
 
-        pbPower = new QPushButton(widget);
+        pbPower = new QPushButton(layoutWidget);
         pbPower->setObjectName(QString::fromUtf8("pbPower"));
         pbPower->setFont(font1);
 

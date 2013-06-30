@@ -28,13 +28,13 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
     dxl_write_word(id_, 8, data.ccw_angle_limit_l());
     //dxl_write_word(id_, 9, data.ccw_angle_limit_h());
 
-    dxl_write_word(id_, 12, data.lowest_voltage_limit());
-    dxl_write_word(id_, 13, data.highest_voltage_limit());
+    dxl_write_byte(id_, 12, data.lowest_voltage_limit());
+    dxl_write_byte(id_, 13, data.highest_voltage_limit());
     dxl_write_word(id_, 14, data.max_torque_l());
     //dxl_write_word(id_, 15, data.max_torque_h());
 
 
-    dxl_write_word(id_, 24, data.torque_enable());
+    dxl_write_byte(id_, 24, data.torque_enable());
 
     /* DYNAMIXEL AX
     dxl_write_word(id_, 26, data.cw_compliance_margin());
@@ -42,9 +42,9 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
     dxl_write_word(id_, 28, data.cw_compliance_slope());
     dxl_write_word(id_, 29, data.ccw_compliance_slope());
     */
-    dxl_write_word(id_, 26, data.d_gain());
-    dxl_write_word(id_, 27, data.i_gain());
-    dxl_write_word(id_, 28, data.p_gain());
+    dxl_write_byte(id_, 26, data.d_gain());
+    dxl_write_byte(id_, 27, data.i_gain());
+    dxl_write_byte(id_, 28, data.p_gain());
 
 /*
     //PD-Control for goal position
@@ -95,7 +95,7 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
     dxl_write_word(id_, 32, data.moving_speed_l());
     //dxl_write_word(id_, 33, data.moving_speed_h());
 
-    //dxl_write_word(id_, 34, data.torque_limit_l());
+    dxl_write_word(id_, 34, data.torque_limit_l());
     //dxl_write_word(id_, 35, data.torque_limit_h());
 
     //dxl_write_word(id_, 47, data.lock());
@@ -104,7 +104,7 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
     //dxl_write_word(id_, 49, data.punch_h());
 
 
-    dxl_write_word(id_, 34, control_torque(data.torque_limit_l(), data.goal_position_l()));
+    //dxl_write_word(id_, 34, control_torque(data.torque_limit_l(), data.goal_position_l()));
     //dxl_write_word(id_, 34, 1023);
 
     // TODO: goal acceleration, add also in gui
@@ -116,23 +116,23 @@ Data Servo::receive_data() const {
 
     Data data;
 
-    data.set_present_position_l(dxl_read_word(id_, 36));
-    data.set_present_position_h(dxl_read_word(id_, 37));
+    data.set_present_position_l(dxl_read_byte(id_, 36));
+    data.set_present_position_h(dxl_read_byte(id_, 37));
 
-    data.set_present_speed_l(dxl_read_word(id_, 38));
-    data.set_present_speed_h(dxl_read_word(id_, 39));
+    data.set_present_speed_l(dxl_read_byte(id_, 38));
+    data.set_present_speed_h(dxl_read_byte(id_, 39));
 
     data.set_present_load_l(dxl_read_word(id_, 40));
 
-    data.set_present_load_h(dxl_read_word(id_, 41));
+    data.set_present_load_h(dxl_read_byte(id_, 41));
 
-    data.set_present_voltage(dxl_read_word(id_, 42));
+    data.set_present_voltage(dxl_read_byte(id_, 42));
 
-    data.set_present_temp(dxl_read_word(id_, 43));
+    data.set_present_temp(dxl_read_byte(id_, 43));
 
-    data.set_registered(dxl_read_word(id_, 44));
+    data.set_registered(dxl_read_byte(id_, 44));
 
-    data.set_moving(dxl_read_word(id_, 46));
+    data.set_moving(dxl_read_byte(id_, 46));
 
     return data;
 }
