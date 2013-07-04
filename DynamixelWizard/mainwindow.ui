@@ -42,7 +42,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="pageSettings">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -556,7 +556,7 @@
            <item>
             <widget class="QStackedWidget" name="swSelectedControl">
              <property name="currentIndex">
-              <number>7</number>
+              <number>8</number>
              </property>
              <widget class="QWidget" name="page19GoalPosition">
               <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1276,16 +1276,18 @@
               <enum>QFrame::Raised</enum>
              </property>
              <layout class="QGridLayout" name="gridLayout_2">
-              <item row="0" column="0" rowspan="4">
-               <widget class="QTableWidget" name="tableWidget_2"/>
+              <item row="2" column="1">
+               <widget class="QPushButton" name="pbStartSearching">
+                <property name="text">
+                 <string>Start Searching</string>
+                </property>
+               </widget>
               </item>
-              <item row="0" column="1">
-               <widget class="QComboBox" name="comboBox">
-                <item>
-                 <property name="text">
-                  <string>Basic Search</string>
-                 </property>
-                </item>
+              <item row="3" column="1">
+               <widget class="QPushButton" name="pbStopSearching">
+                <property name="text">
+                 <string>Stop Searching</string>
+                </property>
                </widget>
               </item>
               <item row="1" column="1">
@@ -1301,18 +1303,187 @@
                 </property>
                </spacer>
               </item>
-              <item row="2" column="1">
-               <widget class="QPushButton" name="pushButton_3">
-                <property name="text">
-                 <string>Start Searching</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
-               <widget class="QPushButton" name="pushButton_4">
-                <property name="text">
-                 <string>Stop Searching</string>
-                </property>
+              <item row="0" column="0" rowspan="4">
+               <widget class="QTableWidget" name="tawBaudRates">
+                <row>
+                 <property name="text">
+                  <string>BaudRate0</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate1</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate3</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate4</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>New Row</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate9</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate16</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate34</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate103</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate207</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate250</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate251</string>
+                 </property>
+                </row>
+                <row>
+                 <property name="text">
+                  <string>BaudRate252</string>
+                 </property>
+                </row>
+                <column>
+                 <property name="text">
+                  <string>Baud Rate</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>Bits per Second (BPS)</string>
+                 </property>
+                </column>
+                <item row="0" column="0">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Checked</enum>
+                 </property>
+                </item>
+                <item row="1" column="0">
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Checked</enum>
+                 </property>
+                </item>
+                <item row="2" column="0">
+                 <property name="text">
+                  <string>3</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
+                <item row="3" column="0">
+                 <property name="text">
+                  <string>4</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
+                <item row="4" column="0">
+                 <property name="text">
+                  <string>7</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
+                <item row="5" column="0">
+                 <property name="text">
+                  <string>9</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
+                <item row="6" column="0">
+                 <property name="text">
+                  <string>16</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
+                <item row="7" column="0">
+                 <property name="text">
+                  <string>34</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
+                <item row="8" column="0">
+                 <property name="text">
+                  <string>103</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
+                <item row="9" column="0">
+                 <property name="text">
+                  <string>207</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
+                <item row="10" column="0">
+                 <property name="text">
+                  <string>250</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
+                <item row="11" column="0">
+                 <property name="text">
+                  <string>251</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
+                <item row="12" column="0">
+                 <property name="text">
+                  <string>252</string>
+                 </property>
+                 <property name="checkState">
+                  <enum>Unchecked</enum>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>

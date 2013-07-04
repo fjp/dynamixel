@@ -34,12 +34,27 @@ public:
     void set_connection(int const& ciConnection);
 
 private slots:
+    /**
+     * @brief slotConnect switches the Stacked Widget swMain to the Connect Page
+     */
     void slotConnect(void);
+
+
+    /**
+     * @brief slotStartSearching starts sending the ping command to all IDs with the specified Baud Rates
+     */
+    void slotStartSearching(void);
+
+
     void slotDynamixelSelected(QTreeWidgetItem*, int);
+
+    /**
+     * @brief slotSelectedControl switches the Stacked Widget swSelectedControl to the selected Entry in the TableWidget tawControlTable
+     */
     void slotSelectedControl(int, int);
     
 private:
-    Ui::MainWindow *m_pUi;
+    Ui::MainWindow *ui;
 
     QComboBox* m_cbUSBPort;
 

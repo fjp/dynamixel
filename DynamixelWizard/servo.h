@@ -18,7 +18,7 @@ private:
     int control_torque(int torque_limit, int goal_pos) const;
 
 
-    int id_;
+    int m_id;
 
 };
 
