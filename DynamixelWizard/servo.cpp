@@ -5,16 +5,13 @@
 #include <QDebug>
 #include <math.h>
 
-Servo::Servo(int const id) {
+Servo::Servo(int const id)
+{
     m_id = id;
 }
 
-Servo::Servo()
+Servo::~Servo()
 {
-
-}
-
-Servo::~Servo() {
 
 }
 

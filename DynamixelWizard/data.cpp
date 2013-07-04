@@ -9,7 +9,8 @@ Data::~Data() {
 }
 
 // set functions
-void Data::set_model_number_l(int const model_number_l) {
+void Data::set_model_number_l(int const model_number_l)
+{
     m_model_number_l = model_number_l;
 }
 

@@ -42,7 +42,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageSettings">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -556,30 +556,57 @@
            <item>
             <widget class="QStackedWidget" name="swSelectedControl">
              <property name="currentIndex">
-              <number>8</number>
+              <number>19</number>
              </property>
-             <widget class="QWidget" name="page19GoalPosition">
-              <layout class="QVBoxLayout" name="verticalLayout_4">
+             <widget class="QWidget" name="page0ModelNumber"/>
+             <widget class="QWidget" name="page1FirmwareVersion"/>
+             <widget class="QWidget" name="page2ID">
+              <layout class="QVBoxLayout" name="verticalLayout_6">
                <item>
-                <widget class="QGroupBox" name="gbSelectedOption">
+                <widget class="QGroupBox" name="gbID">
                  <property name="title">
-                  <string>gbSelectedOption</string>
+                  <string>Changeable ID</string>
                  </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <layout class="QVBoxLayout" name="verticalLayout_7">
                   <item>
-                   <widget class="QDial" name="dialPosition"/>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="lValue">
-                    <property name="text">
-                     <string>TextLabel</string>
+                   <widget class="QFrame" name="frame_7">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
                     </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_5">
+                     <item>
+                      <widget class="QLabel" name="lblID">
+                       <property name="text">
+                        <string>ID List</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="cbID"/>
+                     </item>
+                    </layout>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pbCentralPosition">
+                   <spacer name="verticalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbIDApply">
                     <property name="text">
-                     <string>Central Position</string>
+                     <string>Apply</string>
                     </property>
                    </widget>
                   </item>
@@ -588,22 +615,50 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="page1TorqueLimit">
-              <widget class="QSlider" name="verticalSlider">
-               <property name="geometry">
-                <rect>
-                 <x>70</x>
-                 <y>80</y>
-                 <width>24</width>
-                 <height>160</height>
-                </rect>
-               </property>
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-              </widget>
+             <widget class="QWidget" name="page3BaudRate">
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item>
+                <widget class="QGroupBox" name="groupBox_2">
+                 <property name="title">
+                  <string>Baudrate</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                  <item>
+                   <widget class="QLabel" name="lblBaudnumber">
+                    <property name="text">
+                     <string>Baud number</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="cbBaudrate"/>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_3">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbBaudApply">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
-             <widget class="QWidget" name="pageReturnDelayTime">
+             <widget class="QWidget" name="page4ReturnDelayTime">
               <layout class="QVBoxLayout" name="verticalLayout_11">
                <item>
                 <widget class="QGroupBox" name="gbReturnDelayTime">
@@ -646,7 +701,7 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="pageCWAngleLimit">
+             <widget class="QWidget" name="page5CWAngleLimit">
               <layout class="QVBoxLayout" name="verticalLayout_12">
                <item>
                 <widget class="QGroupBox" name="gbCWAngleLimit">
@@ -746,7 +801,7 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="pageCCWAngleLimit">
+             <widget class="QWidget" name="page6CCWAngleLimit">
               <layout class="QVBoxLayout" name="verticalLayout_17">
                <item>
                 <widget class="QGroupBox" name="gbCCWAngleLimit">
@@ -846,7 +901,7 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="pageTemperatureLimit">
+             <widget class="QWidget" name="page7TemperatureLimit">
               <layout class="QVBoxLayout" name="verticalLayout_20">
                <item>
                 <widget class="QGroupBox" name="gbTemperatureLimit">
@@ -946,107 +1001,7 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="pageLowestVoltageLimit">
-              <layout class="QVBoxLayout" name="verticalLayout_26">
-               <item>
-                <widget class="QGroupBox" name="gbLowestVoltageLimit">
-                 <property name="title">
-                  <string>Voltage Limit</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_24">
-                  <item>
-                   <widget class="QFrame" name="frame_20">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_14">
-                     <item>
-                      <widget class="QSlider" name="vsLowestVoltageLimit">
-                       <property name="orientation">
-                        <enum>Qt::Vertical</enum>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QFrame" name="frame_21">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_25">
-                        <item>
-                         <widget class="QLabel" name="lblLowestVoltageMaxValue">
-                          <property name="text">
-                           <string>250</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <spacer name="verticalSpacer_10">
-                          <property name="orientation">
-                           <enum>Qt::Vertical</enum>
-                          </property>
-                          <property name="sizeHint" stdset="0">
-                           <size>
-                            <width>20</width>
-                            <height>98</height>
-                           </size>
-                          </property>
-                         </spacer>
-                        </item>
-                        <item>
-                         <widget class="QLabel" name="lblLowestVoltageMinValue">
-                          <property name="text">
-                           <string>50</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QFrame" name="frame_22">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_15">
-                     <item>
-                      <widget class="QLabel" name="lblLowestVoltageLimitVolt">
-                       <property name="text">
-                        <string>14V</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QSpinBox" name="sbLowestVoltageLimit"/>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pbLowestVoltageLimitApply">
-                    <property name="text">
-                     <string>Apply</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-             <widget class="QWidget" name="pageHighestVoltageLimit">
+             <widget class="QWidget" name="page8HighestVoltageLimit">
               <layout class="QVBoxLayout" name="verticalLayout_23">
                <item>
                 <widget class="QGroupBox" name="gbHighestVoltageLimit">
@@ -1146,39 +1101,96 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="pageBaudRate">
-              <layout class="QVBoxLayout" name="verticalLayout_8">
+             <widget class="QWidget" name="page9LowestVoltageLimit">
+              <layout class="QVBoxLayout" name="verticalLayout_26">
                <item>
-                <widget class="QGroupBox" name="groupBox_2">
+                <widget class="QGroupBox" name="gbLowestVoltageLimit">
                  <property name="title">
-                  <string>Baudrate</string>
+                  <string>Voltage Limit</string>
                  </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                 <layout class="QVBoxLayout" name="verticalLayout_24">
                   <item>
-                   <widget class="QLabel" name="lblBaudnumber">
-                    <property name="text">
-                     <string>Baud number</string>
+                   <widget class="QFrame" name="frame_20">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
                     </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_14">
+                     <item>
+                      <widget class="QSlider" name="vsLowestVoltageLimit">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_21">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_25">
+                        <item>
+                         <widget class="QLabel" name="lblLowestVoltageMaxValue">
+                          <property name="text">
+                           <string>250</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="verticalSpacer_10">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>98</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="lblLowestVoltageMinValue">
+                          <property name="text">
+                           <string>50</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="cbBaudrate"/>
+                   <widget class="QFrame" name="frame_22">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_15">
+                     <item>
+                      <widget class="QLabel" name="lblLowestVoltageLimitVolt">
+                       <property name="text">
+                        <string>14V</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QSpinBox" name="sbLowestVoltageLimit"/>
+                     </item>
+                    </layout>
+                   </widget>
                   </item>
                   <item>
-                   <spacer name="verticalSpacer_3">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pbBaudApply">
+                   <widget class="QPushButton" name="pbLowestVoltageLimitApply">
                     <property name="text">
                      <string>Apply</string>
                     </property>
@@ -1189,53 +1201,41 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="pageID">
-              <layout class="QVBoxLayout" name="verticalLayout_6">
+             <widget class="QWidget" name="page10"/>
+             <widget class="QWidget" name="page11"/>
+             <widget class="QWidget" name="page12"/>
+             <widget class="QWidget" name="page13"/>
+             <widget class="QWidget" name="page14"/>
+             <widget class="QWidget" name="page15"/>
+             <widget class="QWidget" name="page16"/>
+             <widget class="QWidget" name="page17"/>
+             <widget class="QWidget" name="page18"/>
+             <widget class="QWidget" name="page19GoalPosition">
+              <layout class="QVBoxLayout" name="verticalLayout_4">
                <item>
-                <widget class="QGroupBox" name="gbID">
+                <widget class="QGroupBox" name="gbGoalPosition">
                  <property name="title">
-                  <string>Changeable ID</string>
+                  <string>Goal Position</string>
                  </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_7">
+                 <layout class="QVBoxLayout" name="verticalLayout_3">
                   <item>
-                   <widget class="QFrame" name="frame_7">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
+                   <widget class="QDial" name="dialPosition">
+                    <property name="maximum">
+                     <number>4095</number>
                     </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_5">
-                     <item>
-                      <widget class="QLabel" name="lblID">
-                       <property name="text">
-                        <string>ID List</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QComboBox" name="cbID"/>
-                     </item>
-                    </layout>
                    </widget>
                   </item>
                   <item>
-                   <spacer name="verticalSpacer_4">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
+                   <widget class="QLabel" name="lValue">
+                    <property name="text">
+                     <string>TextLabel</string>
                     </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
+                   </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pbIDApply">
+                   <widget class="QPushButton" name="pbCenterPosition">
                     <property name="text">
-                     <string>Apply</string>
+                     <string>Central Position</string>
                     </property>
                    </widget>
                   </item>
@@ -1243,6 +1243,21 @@
                 </widget>
                </item>
               </layout>
+             </widget>
+             <widget class="QWidget" name="page1TorqueLimit">
+              <widget class="QSlider" name="verticalSlider">
+               <property name="geometry">
+                <rect>
+                 <x>70</x>
+                 <y>80</y>
+                 <width>24</width>
+                 <height>160</height>
+                </rect>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+              </widget>
              </widget>
             </widget>
            </item>
@@ -1283,13 +1298,6 @@
                 </property>
                </widget>
               </item>
-              <item row="3" column="1">
-               <widget class="QPushButton" name="pbStopSearching">
-                <property name="text">
-                 <string>Stop Searching</string>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="1">
                <spacer name="verticalSpacer">
                 <property name="orientation">
@@ -1303,100 +1311,32 @@
                 </property>
                </spacer>
               </item>
+              <item row="3" column="1">
+               <widget class="QPushButton" name="pbStopSearching">
+                <property name="text">
+                 <string>Stop Searching</string>
+                </property>
+               </widget>
+              </item>
               <item row="0" column="0" rowspan="4">
-               <widget class="QTableWidget" name="tawBaudRates">
-                <row>
-                 <property name="text">
-                  <string>BaudRate0</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate1</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate3</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate4</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>New Row</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate9</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate16</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate34</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate103</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate207</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate250</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate251</string>
-                 </property>
-                </row>
-                <row>
-                 <property name="text">
-                  <string>BaudRate252</string>
-                 </property>
-                </row>
-                <column>
-                 <property name="text">
-                  <string>Baud Rate</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Bits per Second (BPS)</string>
-                 </property>
-                </column>
-                <item row="0" column="0">
+               <widget class="QListWidget" name="lwBaudRates">
+                <item>
                  <property name="text">
                   <string>0</string>
                  </property>
                  <property name="checkState">
-                  <enum>Checked</enum>
+                  <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="1" column="0">
+                <item>
                  <property name="text">
                   <string>1</string>
                  </property>
                  <property name="checkState">
-                  <enum>Checked</enum>
+                  <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="2" column="0">
+                <item>
                  <property name="text">
                   <string>3</string>
                  </property>
@@ -1404,7 +1344,7 @@
                   <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="3" column="0">
+                <item>
                  <property name="text">
                   <string>4</string>
                  </property>
@@ -1412,7 +1352,7 @@
                   <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="4" column="0">
+                <item>
                  <property name="text">
                   <string>7</string>
                  </property>
@@ -1420,7 +1360,7 @@
                   <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="5" column="0">
+                <item>
                  <property name="text">
                   <string>9</string>
                  </property>
@@ -1428,7 +1368,7 @@
                   <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="6" column="0">
+                <item>
                  <property name="text">
                   <string>16</string>
                  </property>
@@ -1436,7 +1376,7 @@
                   <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="7" column="0">
+                <item>
                  <property name="text">
                   <string>34</string>
                  </property>
@@ -1444,7 +1384,7 @@
                   <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="8" column="0">
+                <item>
                  <property name="text">
                   <string>103</string>
                  </property>
@@ -1452,7 +1392,7 @@
                   <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="9" column="0">
+                <item>
                  <property name="text">
                   <string>207</string>
                  </property>
@@ -1460,7 +1400,7 @@
                   <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="10" column="0">
+                <item>
                  <property name="text">
                   <string>250</string>
                  </property>
@@ -1468,7 +1408,7 @@
                   <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="11" column="0">
+                <item>
                  <property name="text">
                   <string>251</string>
                  </property>
@@ -1476,7 +1416,7 @@
                   <enum>Unchecked</enum>
                  </property>
                 </item>
-                <item row="12" column="0">
+                <item>
                  <property name="text">
                   <string>252</string>
                  </property>
