@@ -55,18 +55,36 @@ private slots:
     /**
      * @brief slotValueChanged gets called if a value is changed in the StackedWidget swSelectedControl
      */
-    void slotValueChanged(int);
+    void slotValueChanged();
+
+
 
     /**
      * @brief slotSelectedControl switches the Stacked Widget swSelectedControl to the selected Entry in the TableWidget tawControlTable
      */
     void slotSelectedControl(int, int);
+
+    /**
+     * @brief slotUpdateData receives Data from selected Dynamixel stored in m_iSelectedDynamixelID and updates the Values of TableWidget tawControlTable
+     * and pages in swSelectedControl.
+     * gets regularly called after Timer ends.
+     */
+    void slotUpdateData(void);
     
 private:
     /**
      * @brief initStackedWidgetConnects calls the connect functions to give the diffrent pages of StackedWidget swSelectedControl functionality.
      */
     void initStackedWidgetConnects(void);
+
+    /**
+     * @brief data gets the current data set in the Ui and stores it in m_oData
+     */
+    void data(void);
+
+    int getAlarmLED(void);
+
+    int getAlarmShutdown(void);
 
     Ui::MainWindow *ui;
 
@@ -76,6 +94,10 @@ private:
     Data m_oData;
 
     int m_iConnection;
+
+    int m_iSelectedDynamixelID;
+
+    int m_iSelectedAdress;
 };
 
 #endif // MAINWINDOW_H

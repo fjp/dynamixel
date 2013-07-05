@@ -42,7 +42,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="pageSettings">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -556,12 +556,25 @@
            <item>
             <widget class="QStackedWidget" name="swSelectedControl">
              <property name="currentIndex">
-              <number>19</number>
+              <number>15</number>
              </property>
              <widget class="QWidget" name="page0ModelNumber"/>
              <widget class="QWidget" name="page1FirmwareVersion"/>
              <widget class="QWidget" name="page2ID">
               <layout class="QVBoxLayout" name="verticalLayout_6">
+               <item>
+                <spacer name="verticalSpacer_4">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
                <item>
                 <widget class="QGroupBox" name="gbID">
                  <property name="title">
@@ -591,19 +604,6 @@
                    </widget>
                   </item>
                   <item>
-                   <spacer name="verticalSpacer_4">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
                    <widget class="QPushButton" name="pbIDApply">
                     <property name="text">
                      <string>Apply</string>
@@ -617,6 +617,19 @@
              </widget>
              <widget class="QWidget" name="page3BaudRate">
               <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item>
+                <spacer name="verticalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
                <item>
                 <widget class="QGroupBox" name="groupBox_2">
                  <property name="title">
@@ -634,19 +647,6 @@
                    <widget class="QComboBox" name="cbBaudrate"/>
                   </item>
                   <item>
-                   <spacer name="verticalSpacer_3">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
                    <widget class="QPushButton" name="pbBaudApply">
                     <property name="text">
                      <string>Apply</string>
@@ -660,6 +660,19 @@
              </widget>
              <widget class="QWidget" name="page4ReturnDelayTime">
               <layout class="QVBoxLayout" name="verticalLayout_11">
+               <item>
+                <spacer name="verticalSpacer_5">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
                <item>
                 <widget class="QGroupBox" name="gbReturnDelayTime">
                  <property name="title">
@@ -675,19 +688,6 @@
                   </item>
                   <item>
                    <widget class="QComboBox" name="cbReturnDelayTime"/>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer_5">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
                   </item>
                   <item>
                    <widget class="QPushButton" name="pbReturnDelayTimeApply">
@@ -720,6 +720,12 @@
                     <layout class="QHBoxLayout" name="horizontalLayout_6">
                      <item>
                       <widget class="QSlider" name="vsCWAngleLimit">
+                       <property name="maximum">
+                        <number>4095</number>
+                       </property>
+                       <property name="value">
+                        <number>4095</number>
+                       </property>
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
                        </property>
@@ -784,7 +790,11 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QSpinBox" name="sbCWAngleLimit"/>
+                      <widget class="QSpinBox" name="sbCWAngleLimit">
+                       <property name="maximum">
+                        <number>4095</number>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </widget>
@@ -820,6 +830,9 @@
                     <layout class="QHBoxLayout" name="horizontalLayout_8">
                      <item>
                       <widget class="QSlider" name="vsCCWAngleLimit">
+                       <property name="maximum">
+                        <number>4095</number>
+                       </property>
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
                        </property>
@@ -884,7 +897,11 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QSpinBox" name="sbCCWAngleLimit"/>
+                      <widget class="QSpinBox" name="sbCCWAngleLimit">
+                       <property name="maximum">
+                        <number>4095</number>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </widget>
@@ -1084,7 +1101,14 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QSpinBox" name="sbHighestVoltageLimit"/>
+                      <widget class="QSpinBox" name="sbHighestVoltageLimit">
+                       <property name="minimum">
+                        <number>50</number>
+                       </property>
+                       <property name="maximum">
+                        <number>250</number>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </widget>
@@ -1201,41 +1225,118 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="page10"/>
-             <widget class="QWidget" name="page11"/>
-             <widget class="QWidget" name="page12"/>
-             <widget class="QWidget" name="page13"/>
-             <widget class="QWidget" name="page14"/>
-             <widget class="QWidget" name="page15"/>
-             <widget class="QWidget" name="page16"/>
-             <widget class="QWidget" name="page17"/>
-             <widget class="QWidget" name="page18"/>
-             <widget class="QWidget" name="page19GoalPosition">
-              <layout class="QVBoxLayout" name="verticalLayout_4">
+             <widget class="QWidget" name="page10MaxTorque">
+              <layout class="QVBoxLayout" name="verticalLayout_29">
                <item>
-                <widget class="QGroupBox" name="gbGoalPosition">
-                 <property name="title">
-                  <string>Goal Position</string>
+                <spacer name="verticalSpacer_21">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
                  </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbMaxTorque">
+                 <property name="title">
+                  <string>Max Torque</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_27">
                   <item>
-                   <widget class="QDial" name="dialPosition">
-                    <property name="maximum">
-                     <number>4095</number>
+                   <widget class="QFrame" name="frame_23">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
                     </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_16">
+                     <item>
+                      <widget class="QSlider" name="vsMaxTorque">
+                       <property name="maximum">
+                        <number>1023</number>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_24">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_28">
+                        <item>
+                         <widget class="QLabel" name="lblMaxTorqueMaxValue">
+                          <property name="text">
+                           <string>1023</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="verticalSpacer_11">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>98</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="lblMaxTorqueMinValue">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="lValue">
-                    <property name="text">
-                     <string>TextLabel</string>
+                   <widget class="QFrame" name="frame_25">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
                     </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_17">
+                     <item>
+                      <widget class="QLabel" name="lblMaxTorquePercent">
+                       <property name="text">
+                        <string>100%</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QSpinBox" name="sbMaxTorque">
+                       <property name="maximum">
+                        <number>1023</number>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="pbCenterPosition">
+                   <widget class="QPushButton" name="pbMaxTorqueApply">
                     <property name="text">
-                     <string>Central Position</string>
+                     <string>Apply</string>
                     </property>
                    </widget>
                   </item>
@@ -1244,20 +1345,1058 @@
                </item>
               </layout>
              </widget>
-             <widget class="QWidget" name="page1TorqueLimit">
-              <widget class="QSlider" name="verticalSlider">
+             <widget class="QWidget" name="page11ReturnLevel">
+              <layout class="QVBoxLayout" name="verticalLayout_31">
+               <item>
+                <spacer name="verticalSpacer_12">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>246</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbReturnLevel">
+                 <property name="title">
+                  <string>Return Level</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_30">
+                  <item>
+                   <widget class="QComboBox" name="cbReturnLevel">
+                    <item>
+                     <property name="text">
+                      <string>0 (No Return)</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>1 (Read Only)</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>2 (All Return)</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbReturnLevel">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page12AlarmLED">
+              <layout class="QVBoxLayout" name="verticalLayout_33">
+               <item>
+                <spacer name="verticalSpacer_13">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>88</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbAlarmLED">
+                 <property name="title">
+                  <string>LED Alarm</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_32">
+                  <item>
+                   <widget class="QCheckBox" name="cbALInstruction">
+                    <property name="text">
+                     <string>Instruction</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbALOverload">
+                    <property name="text">
+                     <string>Overload</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbALChecksum">
+                    <property name="text">
+                     <string>Checksum</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbALRange">
+                    <property name="text">
+                     <string>Range</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbALOverheating">
+                    <property name="text">
+                     <string>Overheating</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbALAngleLimit">
+                    <property name="text">
+                     <string>Angle Limit</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbALInputVoltage">
+                    <property name="text">
+                     <string>Input Voltage</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbAlarmLEDApply">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page13AlarmShutdown">
+              <layout class="QVBoxLayout" name="verticalLayout_35">
+               <item>
+                <spacer name="verticalSpacer_14">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>88</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbAlarmShutdown">
+                 <property name="title">
+                  <string>Shutdown Setting</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_34">
+                  <item>
+                   <widget class="QCheckBox" name="cbASInstruction">
+                    <property name="text">
+                     <string>Instruction</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbASOverload">
+                    <property name="text">
+                     <string>Overload</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbASChecksum">
+                    <property name="text">
+                     <string>Checksum</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbASRange">
+                    <property name="text">
+                     <string>Range</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbASOverheating">
+                    <property name="text">
+                     <string>Overheating</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbASAngleLimit">
+                    <property name="text">
+                     <string>Angle Limit</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="cbASInputVoltage">
+                    <property name="text">
+                     <string>Input Voltage</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbAlarmShutdownApply">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page14TorqueEnable">
+              <layout class="QVBoxLayout" name="verticalLayout_37">
+               <item>
+                <spacer name="verticalSpacer_15">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>256</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbTorqueEnable">
+                 <property name="title">
+                  <string>ON/OFF</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_36">
+                  <item>
+                   <widget class="QRadioButton" name="rbTEON">
+                    <property name="text">
+                     <string>ON</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QRadioButton" name="rbTEOFF">
+                    <property name="text">
+                     <string>OFF</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page15LED">
+              <layout class="QVBoxLayout" name="verticalLayout_39">
+               <item>
+                <spacer name="verticalSpacer_16">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>256</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbLED">
+                 <property name="title">
+                  <string>ON/OFF</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_38">
+                  <item>
+                   <widget class="QRadioButton" name="rbLEDON">
+                    <property name="text">
+                     <string>ON</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QRadioButton" name="rbLEDOFF">
+                    <property name="text">
+                     <string>OFF</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page16DGain">
+              <layout class="QVBoxLayout" name="verticalLayout_41">
+               <item>
+                <spacer name="verticalSpacer_17">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>246</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbDGain">
+                 <property name="title">
+                  <string>Value</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_40">
+                  <item>
+                   <widget class="QSpinBox" name="sbDG"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbDGApply">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page17IGain">
+              <layout class="QVBoxLayout" name="verticalLayout_43">
+               <item>
+                <spacer name="verticalSpacer_18">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>246</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbIGain">
+                 <property name="title">
+                  <string>Value</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_42">
+                  <item>
+                   <widget class="QSpinBox" name="sbIG"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbIGApply">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page18PGain">
+              <layout class="QVBoxLayout" name="verticalLayout_45">
+               <item>
+                <spacer name="verticalSpacer_19">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>246</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbPGain">
+                 <property name="title">
+                  <string>Value</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_44">
+                  <item>
+                   <widget class="QSpinBox" name="sbPG"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbPGApply">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page19GoalPosition">
+              <layout class="QVBoxLayout" name="verticalLayout_4">
+               <item>
+                <spacer name="verticalSpacer_20">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbGoalPosition">
+                 <property name="title">
+                  <string>Goal Position</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_3">
+                  <item>
+                   <widget class="QDial" name="dialGoalPosition">
+                    <property name="maximum">
+                     <number>4095</number>
+                    </property>
+                    <property name="value">
+                     <number>2045</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="lblGoalPositionValue">
+                    <property name="text">
+                     <string>1708 (150°)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbCenterPosition">
+                    <property name="text">
+                     <string>Center Position</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page20MovingSpeed">
+              <layout class="QVBoxLayout" name="verticalLayout_65">
+               <item>
+                <spacer name="verticalSpacer_32">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbMovingSpeed">
+                 <property name="title">
+                  <string>Moving Speed</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_63">
+                  <item>
+                   <widget class="QFrame" name="frame_32">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_23">
+                     <item>
+                      <widget class="QSlider" name="vsMovingSpeed">
+                       <property name="maximum">
+                        <number>1023</number>
+                       </property>
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_33">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_64">
+                        <item>
+                         <widget class="QLabel" name="lblMovingSpeedMaxValue">
+                          <property name="text">
+                           <string>1023</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="verticalSpacer_31">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>98</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="lblMovingSpeedMinValue">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="frame_34">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_24">
+                     <item>
+                      <widget class="QLabel" name="lblMovingSpeedMaxRPM">
+                       <property name="text">
+                        <string>MaxRPM</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QSpinBox" name="sbMovingSpeed">
+                       <property name="maximum">
+                        <number>1023</number>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbMovingSpeedApply">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page21TorqueLimit">
+              <layout class="QVBoxLayout" name="verticalLayout_48">
+               <item>
+                <spacer name="verticalSpacer_23">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbTorqueLimit">
+                 <property name="title">
+                  <string>Torque Limit</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_46">
+                  <item>
+                   <widget class="QFrame" name="frame_26">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_18">
+                     <item>
+                      <widget class="QSlider" name="vsTorqueLimit">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QFrame" name="frame_27">
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_47">
+                        <item>
+                         <widget class="QLabel" name="lblMaxTorqueMaxValue_2">
+                          <property name="text">
+                           <string>1023</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="verticalSpacer_22">
+                          <property name="orientation">
+                           <enum>Qt::Vertical</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>20</width>
+                            <height>98</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="lblMaxTorqueMinValue_2">
+                          <property name="text">
+                           <string>0</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="frame_28">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_19">
+                     <item>
+                      <widget class="QLabel" name="lblTorqueLimitPercent">
+                       <property name="text">
+                        <string>100%</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QSpinBox" name="sbTorqueLimit">
+                       <property name="maximum">
+                        <number>1023</number>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbTorqueLimitApply">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page22PresentPosition">
+              <layout class="QVBoxLayout" name="verticalLayout_50">
+               <item>
+                <spacer name="verticalSpacer_24">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>169</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbPresentPosition">
+                 <property name="title">
+                  <string>Present Position</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_49">
+                  <item>
+                   <widget class="QDial" name="dialPresentPosition">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="maximum">
+                     <number>4095</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="lblPresentPositionValue">
+                    <property name="text">
+                     <string>2032 (178°)</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page23PresentSpeed">
+              <layout class="QVBoxLayout" name="verticalLayout_52">
+               <item>
+                <spacer name="verticalSpacer_25">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>44</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbPresentSpeed">
+                 <property name="title">
+                  <string>Present Speed</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_51">
+                  <item>
+                   <widget class="QGraphicsView" name="gvPresentSpeed"/>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="frame_29">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_20">
+                     <item>
+                      <widget class="QRadioButton" name="rbPSCW">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="text">
+                        <string>CW</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QRadioButton" name="rbPSCCW">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="text">
+                        <string>CCW</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="lblPresentSpeedValue">
+                    <property name="text">
+                     <string>0 (0 RPM)</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page24PresentLoad">
+              <layout class="QVBoxLayout" name="verticalLayout_54">
+               <item>
+                <spacer name="verticalSpacer_26">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>44</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbPresentLoad">
+                 <property name="title">
+                  <string>Present Load</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_53">
+                  <item>
+                   <widget class="QGraphicsView" name="gvPresentLoad"/>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="frame_30">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_21">
+                     <item>
+                      <widget class="QRadioButton" name="rbPLCW">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="text">
+                        <string>CW</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QRadioButton" name="rbPLCCW">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="text">
+                        <string>CCW</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="lblPresentLoadValue">
+                    <property name="text">
+                     <string>0 (0 RPM)</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page25PresentVoltage">
+              <layout class="QVBoxLayout" name="verticalLayout_56">
+               <item>
+                <spacer name="verticalSpacer_27">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>71</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbPresentVoltage">
+                 <property name="title">
+                  <string>Voltage Status</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_55">
+                  <item>
+                   <widget class="QGraphicsView" name="gvPresentVoltage"/>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="frame_31">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_22">
+                     <item>
+                      <widget class="QLabel" name="label_4">
+                       <property name="text">
+                        <string>Voltage:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="lblPresentVoltageValue">
+                       <property name="text">
+                        <string>11.3V</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page26PresentTemperature">
+              <widget class="QProgressBar" name="progressBar_2">
                <property name="geometry">
                 <rect>
-                 <x>70</x>
-                 <y>80</y>
-                 <width>24</width>
-                 <height>160</height>
+                 <x>40</x>
+                 <y>120</y>
+                 <width>111</width>
+                 <height>21</height>
                 </rect>
                </property>
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="value">
+                <number>24</number>
                </property>
               </widget>
+             </widget>
+             <widget class="QWidget" name="page27RegisteredInstruction"/>
+             <widget class="QWidget" name="page28Moving"/>
+             <widget class="QWidget" name="page29Lock">
+              <layout class="QVBoxLayout" name="verticalLayout_62">
+               <item>
+                <spacer name="verticalSpacer_30">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>277</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbLock">
+                 <property name="title">
+                  <string>EEPROM Lock</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_61">
+                  <item>
+                   <widget class="QPushButton" name="pbLock">
+                    <property name="text">
+                     <string>LOCK</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page30Punch">
+              <layout class="QVBoxLayout" name="verticalLayout_58">
+               <item>
+                <spacer name="verticalSpacer_28">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>246</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbPunch">
+                 <property name="title">
+                  <string>Value</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_57">
+                  <item>
+                   <widget class="QSpinBox" name="sbPunch"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbPunchApply">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page31GoalAcceleration">
+              <layout class="QVBoxLayout" name="verticalLayout_60">
+               <item>
+                <spacer name="verticalSpacer_29">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>246</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="gbGoalAcceleration">
+                 <property name="title">
+                  <string>Value</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_59">
+                  <item>
+                   <widget class="QSpinBox" name="sbGoalAcceleration"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pbGAApply">
+                    <property name="text">
+                     <string>Apply</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </widget>
            </item>
@@ -1333,7 +2472,7 @@
                   <string>1</string>
                  </property>
                  <property name="checkState">
-                  <enum>Unchecked</enum>
+                  <enum>Checked</enum>
                  </property>
                 </item>
                 <item>

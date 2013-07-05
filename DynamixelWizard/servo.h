@@ -1,6 +1,8 @@
 #ifndef SERVO_HPP
 #define SERVO_HPP
 
+#include "dynamixel.h"
+
 #include "data.h"
 
 class Servo

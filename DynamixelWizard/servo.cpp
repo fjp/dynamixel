@@ -1,7 +1,5 @@
 #include "servo.h"
 
-#include "dynamixel.h"
-
 #include <QDebug>
 #include <math.h>
 
@@ -18,20 +16,20 @@ Servo::~Servo()
 void Servo::write_data(Data const& data) const {  // , double load) const{
 
     //static int goal_pos = data.goal_position_l();
-    int m_id = data.id();
+    int id = data.id();
 
-    dxl_write_word(m_id, 6, data.cw_angle_limit_l());
+    dxl_write_word(id, 6, data.cw_angle_limit_l());
     //dxl_write_word(m_id, 7, data.cw_angle_limit_h());
-    dxl_write_word(m_id, 8, data.ccw_angle_limit_l());
+    dxl_write_word(id, 8, data.ccw_angle_limit_l());
     //dxl_write_word(m_id, 9, data.ccw_angle_limit_h());
 
-    dxl_write_word(m_id, 12, data.lowest_voltage_limit());
-    dxl_write_word(m_id, 13, data.highest_voltage_limit());
-    dxl_write_word(m_id, 14, data.max_torque_l());
+    dxl_write_word(id, 12, data.lowest_voltage_limit());
+    dxl_write_word(id, 13, data.highest_voltage_limit());
+    dxl_write_word(id, 14, data.max_torque_l());
     //dxl_write_word(m_id, 15, data.max_torque_h());
 
 
-    dxl_write_word(m_id, 24, data.torque_enable());
+    dxl_write_word(id, 24, data.torque_enable());
 
     /* DYNAMIXEL AX
     dxl_write_word(m_id, 26, data.cw_compliance_margin());
@@ -39,9 +37,9 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
     dxl_write_word(m_id, 28, data.cw_compliance_slope());
     dxl_write_word(m_id, 29, data.ccw_compliance_slope());
     */
-    dxl_write_word(m_id, 26, data.d_gain());
-    dxl_write_word(m_id, 27, data.i_gain());
-    dxl_write_word(m_id, 28, data.p_gain());
+    dxl_write_byte(id, 26, data.d_gain());
+    dxl_write_byte(id, 27, data.i_gain());
+    dxl_write_byte(id, 28, data.p_gain());
 
 /*
     //PD-Control for goal position
@@ -86,22 +84,22 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
 
 */
 
-    dxl_write_word(m_id, 30, data.goal_position_l());
+    dxl_write_word(id, 30, data.goal_position_l());
     //dxl_write_word(m_id, 31, data.goal_position_h());
 
-    dxl_write_word(m_id, 32, data.moving_speed_l());
+    dxl_write_word(id, 32, data.moving_speed_l());
     //dxl_write_word(m_id, 33, data.moving_speed_h());
 
-    dxl_write_word(m_id, 34, data.torque_limit_l());
+    dxl_write_word(id, 34, data.torque_limit_l());
     //dxl_write_word(m_id, 35, data.torque_limit_h());
 
     //dxl_write_word(m_id, 47, data.lock());
 
-    dxl_write_word(m_id, 48, data.punch_l());
+    dxl_write_word(id, 48, data.punch_l());
     //dxl_write_word(m_id, 49, data.punch_h());
 
 
-    dxl_write_word(m_id, 34, control_torque(data.torque_limit_l(), data.goal_position_l()));
+    dxl_write_word(id, 34, control_torque(data.torque_limit_l(), data.goal_position_l()));
     //dxl_write_word(m_id, 34, 1023);
 
     // TODO: goal acceleration, add also in gui
