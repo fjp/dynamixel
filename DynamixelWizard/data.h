@@ -32,22 +32,13 @@ public:
     // set functions
     /***** EEPROM *****/
     /**
-     * @brief set_model_number_l Lowest byte of model number
+     * @brief set_model_number word of model number
      * @Adress 0 (0X00)
      * @Access R
      * @Initial Value 29 (0X1D)
-     * @param model_number_l
+     * @param model_number
      */
-    void set_model_number_l(int const model_number_l);
-
-    /**
-     * @brief set_model_number_h Highest byte of model number
-     * @Adress 1 (0X01)
-     * @Access R
-     * @Initial Value 0 (0X00)
-     * @param model_number_h
-     */
-    void set_model_number_h(int const model_number_h);
+    void set_model_number(int const model_number);
 
     /**
      * @brief set_firmware_version Information on the version of firmware
@@ -89,40 +80,22 @@ public:
     void set_return_delay_time(int const return_delay_time);
 
     /**
-     * @brief set_cw_angle_limit_l Lowest byte of clockwise Angle Limit
+     * @brief set_cw_angle_limit word of clockwise Angle Limit
      * @Adress 6 (0X06)
      * @Access RW
      * @Initial Value 0 (0X00)
      * @param cw_angle_limit_l
      */
-    void set_cw_angle_limit_l(int const cw_angle_limit_l);
+    void set_cw_angle_limit(int const cw_angle_limit);
 
     /**
-     * @brief set_cw_angle_limit_h Lowest byte of clockwise Angle Limit
-     * @Adress 7 (0X07)
-     * @Access RW
-     * @Initial Value 0 (0X00)
-     * @param cw_angle_limit_h
-     */
-    void set_cw_angle_limit_h(int const cw_angle_limit_h );
-
-    /**
-     * @brief set_ccw_angle_limit_l Lowest byte of counterclockwise Angle Limit
+     * @brief set_ccw_angle_limit word of counterclockwise Angle Limit
      * @Adress 8 (0X08)
      * @Access RW
      * @Initial Value 255 (0XFF)
      * @param ccw_angle_limit_l
      */
-    void set_ccw_angle_limit_l(int const ccw_angle_limit_l);
-
-    /**
-     * @brief set_ccw_angle_limit_h Highest byte of counterclockwise Angle Limit
-     * @Adress 9 (0X09)
-     * @Access RW
-     * @Initial Value 15 (0X0F)
-     * @param ccw_angle_limit_h
-     */
-    void set_ccw_angle_limit_h(int const ccw_angle_limit_h);
+    void set_ccw_angle_limit(int const ccw_angle_limit);
 
     /**
      * @brief set_highest_temp_limit Internal Temperature Limit
@@ -152,22 +125,13 @@ public:
     void set_highest_voltage_limit(int const highest_voltage_limit);
 
     /**
-     * @brief set_max_torque_l Lowest byte of Max. Torque
+     * @brief set_max_torque word of Max. Torque
      * @Adress 14 (0X0E)
      * @Access RW
      * @Initial Value 255 (0XFF)
      * @param max_torque_l
      */
-    void set_max_torque_l(int const max_torque_l );
-
-    /**
-     * @brief set_max_torque_h Highest byte of Max. Torque
-     * @Adress 15 (0X0F)
-     * @Access RW
-     * @Initial Value 3 (0X03)
-     * @param max_torque_h
-     */
-    void set_max_torque_h(int const max_torque_h);
+    void set_max_torque(int const max_torque);
 
     /**
      * @brief set_status_return_level Status Return Level
@@ -250,112 +214,59 @@ public:
     void set_p_gain(int const p_gain);
 
     /**
-     * @brief set_goal_position_l Lowest byte of Goal Position
+     * @brief set_goal_position word of Goal Position
      * @Adress 30 (0X1E)
      * @Access RW
      * @Initial Value -
      * @param goal_position_l
      */
-    void set_goal_position_l(int const goal_position_l);
+    void set_goal_position(int const goal_position);
 
     /**
-     * @brief set_goal_position_h Highest byte of Goal Position
-     * @Adress 31 (0X1F)
-     * @Access RW
-     * @Initial Value -
-     * @param goal_position_h
-     */
-    void set_goal_position_h(int const goal_position_h);
-
-    /**
-     * @brief set_moving_speed_l
+     * @brief set_moving_speed word of Moving Speed
      * @Adress 32 (0X20)
      * @Access RW
      * @Initial Value -
      * @param moving_speed_l
      */
-    void set_moving_speed_l(int const moving_speed_l);
+    void set_moving_speed(int const moving_speed);
 
     /**
-     * @brief set_moving_speed_h
-     * @Adress 33 (0X21)
-     * @Access RW
-     * @Initial Value -
-     * @param moving_speed_h
-     */
-    void set_moving_speed_h(int const moving_speed_h);
-
-    /**
-     * @brief set_torque_limit_l Lowest byte of Torque Limit
+     * @brief set_torque_limit word of Torque Limit
      * @Adress 34 (0X22)
      * @Access RW
      * @Initial Value ADD14 (Max Torque L)
      * @param torque_limit_l
      */
-    void set_torque_limit_l(int const torque_limit_l);
+    void set_torque_limit(int const torque_limit);
 
     /**
-     * @brief set_torque_limit_h Highest byte of Torque Limit
-     * @Adress 35 (0X23)
-     * @Access RW
-     * @Initial Value ADD15 (Max Torque H)
-     * @param torque_limit_h
-     */
-    void set_torque_limit_h(int const torque_limit_h);
-
-    /**
-     * @brief set_present_load_l
+     * @brief set_present_load word of Present Load
      * @Adress
      * @Access R
      * @Initial Value
      * @param present_load_l
      */
-    void set_present_load_l(int const present_load_l);
+    void set_present_load(int const present_load);
+
 
     /**
-     * @brief set_present_load_h
-     * @Adress
-     * @Access R
-     * @Initial Value
-     * @param present_load_h
-     */
-    void set_present_load_h(int const present_load_h);
-
-    /**
-     * @brief set_present_position_l
+     * @brief set_present_position word of Present Position
      * @Adress
      * @Access RW
      * @Initial Value
      * @param present_position_l
      */
-     void set_present_position_l(int const present_position_l);
+     void set_present_position(int const present_position);
 
     /**
-     * @brief set_present_position_h
-     * @Adress
-     * @Access R
-     * @Initial Value
-     * @param present_position_h
-     */
-    void set_present_position_h(int const present_position_h);
-
-    /**
-     * @brief set_present_speed_l
+     * @brief set_present_speed word of Present Speed
      * @Adress
      * @Access
      * @Initial Value
      * @param present_speed_l
      */
-    void set_present_speed_l(int const present_speed_l);
-
-    /**
-     * @brief set_present_speed_h
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @param present_speed_h
-     */
-    void set_present_speed_h(int const present_speed_h);
+    void set_present_speed(int const present_speed);
 
     /**
      * @brief set_present_voltage
@@ -403,25 +314,16 @@ public:
     void set_lock(int const lock);
 
     /**
-     * @brief set_punch_l
+     * @brief set_punch word of Punch
      * @Adress
      * @Access
      * @Initial Value 0 (0X00)
      * @param punch_l
      */
-    void set_punch_l(int const punch_l);
+    void set_punch(int const punch);
 
     /**
-     * @brief set_punch_h
-     * @Adress
-     * @Access
-     * @Initial Value 0 (0X00)
-     * @param punch_h
-     */
-    void set_punch_h(int const punch_h);
-
-    /**
-     * @brief set_goal_acceleration
+     * @brief set_goal_acceleration word of Goal Acceleration
      * @Adress
      * @Access
      * @Initial Value 0 (0X00)
@@ -463,16 +365,7 @@ public:
      * @Initial Value
      * @return
      */
-    int model_number_l() const;
-
-    /**
-     * @brief model_number_h
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int model_number_h() const;
+    int model_number() const;
 
     /**
      * @brief firmware_version
@@ -511,40 +404,22 @@ public:
     int return_delay_time() const;
 
     /**
-     * @brief cw_angle_limit_l
+     * @brief cw_angle_limit
      * @Adress
      * @Access
      * @Initial Value
      * @return
      */
-    int cw_angle_limit_l() const;
+    int cw_angle_limit() const;
 
     /**
-     * @brief cw_angle_limit_h
+     * @brief ccw_angle_limit
      * @Adress
      * @Access
      * @Initial Value
      * @return
      */
-    int cw_angle_limit_h() const;
-
-    /**
-     * @brief ccw_angle_limit_l
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int ccw_angle_limit_l() const;
-
-    /**
-     * @brief ccw_angle_limit_h
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int ccw_angle_limit_h() const;
+    int ccw_angle_limit() const;
 
     /**
      * @brief highest_temp_limit
@@ -574,22 +449,13 @@ public:
     int highest_voltage_limit() const;
 
     /**
-     * @brief max_torque_l
+     * @brief max_torque
      * @Adress
      * @Access
      * @Initial Value
      * @return
      */
-    int max_torque_l() const;
-
-    /**
-     * @brief max_torque_h
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int max_torque_h() const;
+    int max_torque() const;
 
     /**
      * @brief status_return_level
@@ -672,112 +538,59 @@ public:
     int p_gain() const;
 
     /**
-     * @brief goal_position_l
+     * @brief goal_position
      * @Adress
      * @Access
      * @Initial Value
      * @return
      */
-    int goal_position_l() const;
+    int goal_position() const;
 
     /**
-     * @brief goal_position_h
+     * @brief moving_speed
      * @Adress
      * @Access
      * @Initial Value
      * @return
      */
-    int goal_position_h() const;
+    int moving_speed() const;
 
     /**
-     * @brief moving_speed_l
+     * @brief torque_limit
      * @Adress
      * @Access
      * @Initial Value
      * @return
      */
-    int moving_speed_l() const;
+    int torque_limit() const;
 
     /**
-     * @brief moving_speed_h
+     * @brief present_load
      * @Adress
      * @Access
      * @Initial Value
      * @return
      */
-    int moving_speed_h() const;
+    int present_load() const;
+
 
     /**
-     * @brief torque_limit_l
+     * @brief present_position
      * @Adress
      * @Access
      * @Initial Value
      * @return
      */
-    int torque_limit_l() const;
+    int present_position() const;
 
     /**
-     * @brief torque_limit_h
+     * @brief present_speed
      * @Adress
      * @Access
      * @Initial Value
      * @return
      */
-    int torque_limit_h() const;
-
-    /**
-     * @brief present_load_l
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int present_load_l() const;
-
-    /**
-     * @brief present_load_h
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int present_load_h() const;
-
-    /**
-     * @brief present_position_l
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int present_position_l() const;
-
-    /**
-     * @brief present_position_h
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int present_position_h() const;
-
-    /**
-     * @brief present_speed_l
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int present_speed_l() const;
-
-    /**
-     * @brief present_speed_h
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int present_speed_h() const;
+    int present_speed() const;
 
     /**
      * @brief present_voltage
@@ -825,22 +638,13 @@ public:
     int lock() const;
 
     /**
-     * @brief punch_l
+     * @brief punch
      * @Adress
      * @Access
      * @Initial Value
      * @return
      */
-    int punch_l() const;
-
-    /**
-     * @brief punch_h
-     * @Adress
-     * @Access
-     * @Initial Value
-     * @return
-     */
-    int punch_h() const;
+    int punch() const;
 
     /**
      * @brief goal_acceleration
@@ -864,25 +668,21 @@ public:
 private:
 
     /**** EEPROM ****/
-    int m_model_number_l;
-    int m_model_number_h;
+    int m_model_number;
 
     int m_firmware_version;
     int m_id;
     int m_baud_rate;
     int m_return_delay_time;
 
-    int m_cw_angle_limit_l;
-    int m_cw_angle_limit_h;
-    int m_ccw_angle_limit_l;
-    int m_ccw_angle_limit_h;
+    int m_cw_angle_limit;
+    int m_ccw_angle_limit;
 
     int m_highest_temp_limit;
     int m_lowest_voltage_limit;
     int m_highest_voltage_limit;
 
-    int m_max_torque_l;
-    int m_max_torque_h;
+    int m_max_torque;
 
     int m_status_return_level;
     int m_alarm_led;
@@ -903,18 +703,12 @@ private:
     int m_i_gain;
     int m_p_gain;
 
-    int m_goal_position_l;
-    int m_goal_position_h;
-    int m_moving_speed_l;
-    int m_moving_speed_h;
-    int m_torque_limit_l;
-    int m_torque_limit_h;
-    int m_present_load_l;
-    int m_present_load_h;
-    int m_present_position_l;
-    int m_present_position_h;
-    int m_present_speed_l;
-    int m_present_speed_h;
+    int m_goal_position;
+    int m_moving_speed;
+    int m_torque_limit;
+    int m_present_load;
+    int m_present_position;
+    int m_present_speed;
 
     int m_present_voltage;
     int m_present_temp;
@@ -923,8 +717,7 @@ private:
     int m_moving;
     int m_lock;
 
-    int m_punch_l;
-    int m_punch_h;
+    int m_punch;
 
     int m_goal_acceleration;
 

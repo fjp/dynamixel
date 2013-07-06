@@ -8,7 +8,6 @@
 class Servo
 {
 public:
-    Servo(int const id);
     Servo();
     ~Servo();
 
@@ -16,11 +15,10 @@ public:
     Data& receive_data() const;
 
 private:
+    Data m_oData;
+
     // Returns the desired load that is applied to force the sensor the get back to the goal position
     int control_torque(int torque_limit, int goal_pos) const;
-
-
-    int m_id;
 
 };
 

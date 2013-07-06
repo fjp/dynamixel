@@ -146,7 +146,7 @@ void MainWindow::slotDynamixelSelected(QTreeWidgetItem* qtwiItem, int iColumn)
 
 void MainWindow::slotValueChanged()
 {
-    Servo servo(m_iSelectedDynamixelID);
+    Servo servo();
 
     qDebug() << "slotValueChanged: update data()";
     data();

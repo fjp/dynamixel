@@ -3,9 +3,45 @@
 #include <QDebug>
 #include <math.h>
 
-Servo::Servo(int const id)
+Servo::Servo()
 {
-    m_id = id;
+    m_oData.set_model_number(0);
+    m_oData.set_firmware_version(0);
+    m_oData.set_id(0);
+    m_oData.set_baud_rate(0);
+    m_oData.set_return_delay_time(0);
+    m_oData.set_cw_angle_limit(0);
+    m_oData.set_ccw_angle_limit(0);
+    m_oData.set_highest_temp_limit(0);
+    m_oData.set_lowest_voltage_limit(0);
+    m_oData.set_highest_voltage_limit(0);
+    m_oData.set_max_torque(0);
+    m_oData.set_status_return_level(0);
+    m_oData.set_alarm_led(0);
+    m_oData.set_alarm_shutdown(0);
+
+    m_oData.set_torque_enable(0);
+    m_oData.set_led(0);
+    m_oData.set_d_gain(0);
+    m_oData.set_i_gain(0);
+    m_oData.set_p_gain(0);
+    m_oData.set_goal_position(0);
+    m_oData.set_moving_speed(0);
+    m_oData.set_torque_limit(0);
+    m_oData.set_torque_limit(0);
+    m_oData.set_present_position(0);
+    m_oData.set_present_speed(0);
+    m_oData.set_present_load(0);
+
+    m_oData.set_present_voltage(0);
+    m_oData.set_present_temp(0);
+
+    m_oData.set_registered(0);
+    m_oData.set_moving(0);
+    m_oData.set_lock(0);
+    m_oData.set_punch(0);
+    m_oData.set_goal_acceleration(0);
+
 }
 
 Servo::~Servo()
