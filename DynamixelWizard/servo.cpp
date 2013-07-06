@@ -3,12 +3,12 @@
 #include <QDebug>
 #include <math.h>
 
-Servo::Servo()
+Servo::Servo(const int& iID, const int& iBaudRate)
 {
     m_oData.set_model_number(0);
     m_oData.set_firmware_version(0);
-    m_oData.set_id(0);
-    m_oData.set_baud_rate(0);
+    m_oData.set_id(iID);
+    m_oData.set_baud_rate(iBaudRate);
     m_oData.set_return_delay_time(0);
     m_oData.set_cw_angle_limit(0);
     m_oData.set_ccw_angle_limit(0);
@@ -52,30 +52,30 @@ Servo::~Servo()
 void Servo::write_data(Data const& data) const {  // , double load) const{
 
     //static int goal_pos = data.goal_position_l();
-    int id = data.id();
+    int iID = m_oData.id();
 
-    dxl_write_word(id, 6, data.cw_angle_limit_l());
-    //dxl_write_word(m_id, 7, data.cw_angle_limit_h());
-    dxl_write_word(id, 8, data.ccw_angle_limit_l());
-    //dxl_write_word(m_id, 9, data.ccw_angle_limit_h());
+    dxl_write_word(iID, 6, data.cw_angle_limit());
+    //dxl_write_word(iID, 7, data.cw_angle_limit_h());
+    dxl_write_word(iID, 8, data.ccw_angle_limit());
+    //dxl_write_word(iID, 9, data.ccw_angle_limit_h());
 
-    dxl_write_word(id, 12, data.lowest_voltage_limit());
-    dxl_write_word(id, 13, data.highest_voltage_limit());
-    dxl_write_word(id, 14, data.max_torque_l());
-    //dxl_write_word(m_id, 15, data.max_torque_h());
+    dxl_write_word(iID, 12, data.lowest_voltage_limit());
+    dxl_write_word(iID, 13, data.highest_voltage_limit());
+    dxl_write_word(iID, 14, data.max_torque());
+    //dxl_write_word(iID, 15, data.max_torque_h());
 
 
-    dxl_write_word(id, 24, data.torque_enable());
+    dxl_write_word(iID, 24, data.torque_enable());
 
     /* DYNAMIXEL AX
-    dxl_write_word(m_id, 26, data.cw_compliance_margin());
-    dxl_write_word(m_id, 27, data.ccw_compliance_margin());
-    dxl_write_word(m_id, 28, data.cw_compliance_slope());
-    dxl_write_word(m_id, 29, data.ccw_compliance_slope());
+    dxl_write_word(iID, 26, data.cw_compliance_margin());
+    dxl_write_word(iID, 27, data.ccw_compliance_margin());
+    dxl_write_word(iID, 28, data.cw_compliance_slope());
+    dxl_write_word(iID, 29, data.ccw_compliance_slope());
     */
-    dxl_write_byte(id, 26, data.d_gain());
-    dxl_write_byte(id, 27, data.i_gain());
-    dxl_write_byte(id, 28, data.p_gain());
+    dxl_write_byte(iID, 26, data.d_gain());
+    dxl_write_byte(iID, 27, data.i_gain());
+    dxl_write_byte(iID, 28, data.p_gain());
 
 /*
     //PD-Control for goal position
@@ -120,89 +120,86 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
 
 */
 
-    dxl_write_word(id, 30, data.goal_position_l());
-    //dxl_write_word(m_id, 31, data.goal_position_h());
+    dxl_write_word(iID, 30, data.goal_position());
+    //dxl_write_word(iID, 31, data.goal_position_h());
 
-    dxl_write_word(id, 32, data.moving_speed_l());
-    //dxl_write_word(m_id, 33, data.moving_speed_h());
+    dxl_write_word(iID, 32, data.moving_speed());
+    //dxl_write_word(iID, 33, data.moving_speed_h());
 
-    dxl_write_word(id, 34, data.torque_limit_l());
-    //dxl_write_word(m_id, 35, data.torque_limit_h());
+    dxl_write_word(iID, 34, data.torque_limit());
+    //dxl_write_word(iID, 35, data.torque_limit_h());
 
-    //dxl_write_word(m_id, 47, data.lock());
+    //dxl_write_word(iID, 47, data.lock());
 
-    dxl_write_word(id, 48, data.punch_l());
-    //dxl_write_word(m_id, 49, data.punch_h());
+    dxl_write_word(iID, 48, data.punch());
+    //dxl_write_word(iID, 49, data.punch_h());
 
 
-    dxl_write_word(id, 34, control_torque(data.torque_limit_l(), data.goal_position_l()));
-    //dxl_write_word(m_id, 34, 1023);
+    dxl_write_word(iID, 34, control_torque(data.torque_limit(), data.goal_position()));
+    //dxl_write_word(iID, 34, 1023);
 
     // TODO: goal acceleration, add also in gui
 
 
 }
 
-Data& Servo::receive_data() const {
-
-    Data data;
+Data& Servo::receive_data()
+{
+    int iID = m_oData.id();
 
     /***** EEPROM *****/
-    data.set_model_number_l(dxl_read_word(m_id, 0));
-    data.set_firmware_version(dxl_read_byte(m_id, 2));
+    m_oData.set_model_number(dxl_read_word(iID, 0));
+    m_oData.set_firmware_version(dxl_read_byte(iID, 2));
 
-    data.set_id(dxl_read_byte(m_id, 3));
-    data.set_baud_rate(dxl_read_byte(m_id, 4));
-    data.set_return_delay_time(dxl_read_byte(m_id, 5));
+    m_oData.set_id(dxl_read_byte(iID, 3));
+    m_oData.set_baud_rate(dxl_read_byte(iID, 4));
+    m_oData.set_return_delay_time(dxl_read_byte(iID, 5));
 
-    data.set_cw_angle_limit_l(dxl_read_word(m_id, 6));
-    data.set_ccw_angle_limit_l(dxl_read_word(m_id, 8));
+    m_oData.set_cw_angle_limit(dxl_read_word(iID, 6));
+    m_oData.set_ccw_angle_limit(dxl_read_word(iID, 8));
 
-    data.set_highest_temp_limit(dxl_read_byte(m_id, 11));
-    data.set_lowest_voltage_limit(dxl_read_byte(m_id, 12));
-    data.set_highest_voltage_limit(dxl_read_byte(m_id, 13));
+    m_oData.set_highest_temp_limit(dxl_read_byte(iID, 11));
+    m_oData.set_lowest_voltage_limit(dxl_read_byte(iID, 12));
+    m_oData.set_highest_voltage_limit(dxl_read_byte(iID, 13));
 
-    data.set_max_torque_l(dxl_read_word(m_id, 14));
-    data.set_status_return_level(dxl_read_byte(m_id, 16));
-    data.set_alarm_led(dxl_read_byte(m_id, 17));
-    data.set_alarm_shutdown(dxl_read_byte(m_id, 18));
+    m_oData.set_max_torque(dxl_read_word(iID, 14));
+    m_oData.set_status_return_level(dxl_read_byte(iID, 16));
+    m_oData.set_alarm_led(dxl_read_byte(iID, 17));
+    m_oData.set_alarm_shutdown(dxl_read_byte(iID, 18));
 
     /***** RAM *****/
-    data.set_torque_enable(dxl_read_byte(m_id, 24));
-    data.set_led(dxl_read_byte(m_id, 25));
+    m_oData.set_torque_enable(dxl_read_byte(iID, 24));
+    m_oData.set_led(dxl_read_byte(iID, 25));
 
-    data.set_d_gain(dxl_read_byte(m_id, 26));
-    data.set_i_gain(dxl_read_byte(m_id, 27));
-    data.set_p_gain(dxl_read_byte(m_id, 28));
+    m_oData.set_d_gain(dxl_read_byte(iID, 26));
+    m_oData.set_i_gain(dxl_read_byte(iID, 27));
+    m_oData.set_p_gain(dxl_read_byte(iID, 28));
 
-    data.set_goal_position_l(dxl_read_word(m_id, 30));
-    data.set_moving_speed_l(dxl_read_word(m_id, 32));
-    data.set_torque_limit_l(dxl_read_word(m_id, 34));
+    m_oData.set_goal_position(dxl_read_word(iID, 30));
+    m_oData.set_moving_speed(dxl_read_word(iID, 32));
+    m_oData.set_torque_limit(dxl_read_word(iID, 34));
 
-    data.set_present_position_l(dxl_read_word(m_id, 36));
-    //data.set_present_position_h(dxl_read_word(m_id, 37));
+    m_oData.set_present_position(dxl_read_word(iID, 36));
 
-    data.set_present_speed_l(dxl_read_word(m_id, 38));
-    //data.set_present_speed_h(dxl_read_word(m_id, 39));
+    m_oData.set_present_speed(dxl_read_word(iID, 38));
 
-    data.set_present_load_l(dxl_read_word(m_id, 40));
-    //data.set_present_load_h(dxl_read_word(m_id, 41));
+    m_oData.set_present_load(dxl_read_word(iID, 40));
 
-    data.set_present_voltage(dxl_read_byte(m_id, 42));
+    m_oData.set_present_voltage(dxl_read_byte(iID, 42));
 
-    data.set_present_temp(dxl_read_byte(m_id, 43));
+    m_oData.set_present_temp(dxl_read_byte(iID, 43));
 
-    data.set_registered(dxl_read_byte(m_id, 44));
+    m_oData.set_registered(dxl_read_byte(iID, 44));
 
-    data.set_moving(dxl_read_byte(m_id, 46));
+    m_oData.set_moving(dxl_read_byte(iID, 46));
 
-    data.set_lock(dxl_read_byte(m_id, 47));
+    m_oData.set_lock(dxl_read_byte(iID, 47));
 
-    data.set_punch_l(dxl_read_word(m_id, 48));
+    m_oData.set_punch(dxl_read_word(iID, 48));
 
-    data.set_goal_acceleration(dxl_read_byte(m_id, 73));
+    m_oData.set_goal_acceleration(dxl_read_byte(iID, 73));
 
-    return data;
+    return m_oData; // TODO return really needed?
 }
 
 
@@ -222,7 +219,7 @@ int Servo::control_torque(int torque_limit, int goal_pos) const{
     double m = t/x;
     double des_load = 0.0;
     
-    int cur_pos = dxl_read_word(m_id, 36);
+    int cur_pos = dxl_read_word(m_oData.id(), 36);
     
     // Magnitude of the position
     double pos = sqrt(pow(cur_pos - goal_pos, 2));

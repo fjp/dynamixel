@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QApplication>
 #include <QListWidget>
+#include <QList>
 
 #include "dynamixel.h"
 #include "data.h"
@@ -35,7 +36,7 @@ public:
 
     void set_connection(int const& ciConnection);
 
-    void connectToDynamixel(int ittyUSBPort, int iBaudRate) const;
+    void connectToDynamixel(int ittyUSBPort, int iBaudRate);
 
 private slots:
     /**
@@ -92,6 +93,9 @@ private:
     int m_ittyUSBPort;
 
     Data m_oData;
+
+    QList<Servo* > m_qlServoList;
+    QList<int* > m_list;
 
     int m_iConnection;
 

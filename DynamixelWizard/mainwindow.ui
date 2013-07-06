@@ -42,7 +42,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageSettings">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -556,7 +556,7 @@
            <item>
             <widget class="QStackedWidget" name="swSelectedControl">
              <property name="currentIndex">
-              <number>15</number>
+              <number>21</number>
              </property>
              <widget class="QWidget" name="page0ModelNumber"/>
              <widget class="QWidget" name="page1FirmwareVersion"/>

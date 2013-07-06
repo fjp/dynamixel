@@ -32,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     initStackedWidgetConnects();
+    int * iPointer = new int(5);
+    m_list.append(iPointer);
 }
 
 MainWindow::~MainWindow()
@@ -146,13 +148,12 @@ void MainWindow::slotDynamixelSelected(QTreeWidgetItem* qtwiItem, int iColumn)
 
 void MainWindow::slotValueChanged()
 {
-    Servo servo();
 
     qDebug() << "slotValueChanged: update data()";
     data();
     //slotUpdateData();
 
-    servo.write_data(m_oData);
+    m_qlServoList[m_iSelectedDynamixelID]->write_data(m_oData);
 
 }
 
@@ -171,13 +172,11 @@ void MainWindow::slotSelectedControl(int row, int col)
 
 void MainWindow::slotUpdateData()
 {
-    Servo servo(m_iSelectedDynamixelID);
-
-    m_oData = servo.receive_data();
+    m_oData = m_qlServoList[m_iSelectedDynamixelID]->receive_data();
 
     qDebug() << "ID:" << m_oData.id();
 
-    ui->tawControlTable->setItem(0, 3, new QTableWidgetItem(QString::number(m_oData.model_number_l())));
+    ui->tawControlTable->setItem(0, 3, new QTableWidgetItem(QString::number(m_oData.model_number())));
     // TODO update swSelectedControl pages
     ui->tawControlTable->setItem(1, 3, new QTableWidgetItem(QString::number(m_oData.firmware_version())));
 
@@ -186,11 +185,11 @@ void MainWindow::slotUpdateData()
 
     ui->tawControlTable->setItem(3, 3, new QTableWidgetItem(QString::number(m_oData.baud_rate())));
     ui->tawControlTable->setItem(4, 3, new QTableWidgetItem(QString::number(m_oData.return_delay_time())));
-    ui->tawControlTable->setItem(5, 3, new QTableWidgetItem(QString::number(m_oData.cw_angle_limit_l())));
-    ui->vsCWAngleLimit->setValue(m_oData.cw_angle_limit_l());
+    ui->tawControlTable->setItem(5, 3, new QTableWidgetItem(QString::number(m_oData.cw_angle_limit())));
+    ui->vsCWAngleLimit->setValue(m_oData.cw_angle_limit());
 
-    ui->tawControlTable->setItem(6, 3, new QTableWidgetItem(QString::number(m_oData.ccw_angle_limit_l())));
-    ui->vsCCWAngleLimit->setValue(m_oData.ccw_angle_limit_l());
+    ui->tawControlTable->setItem(6, 3, new QTableWidgetItem(QString::number(m_oData.ccw_angle_limit())));
+    ui->vsCCWAngleLimit->setValue(m_oData.ccw_angle_limit());
 
     ui->tawControlTable->setItem(7, 3, new QTableWidgetItem(QString::number(m_oData.highest_temp_limit())));
     ui->vsTemperatureLimit->setValue(m_oData.highest_temp_limit());
@@ -201,9 +200,9 @@ void MainWindow::slotUpdateData()
     ui->tawControlTable->setItem(9, 3, new QTableWidgetItem(QString::number(m_oData.highest_voltage_limit())));
     ui->vsHighestVoltageLimit->setValue(m_oData.highest_voltage_limit());
 
-    ui->tawControlTable->setItem(10, 3, new QTableWidgetItem(QString::number(m_oData.max_torque_l())));
-    ui->vsMaxTorque->setValue(m_oData.max_torque_l());
-    ui->sbMaxTorque->setValue(m_oData.max_torque_l());
+    ui->tawControlTable->setItem(10, 3, new QTableWidgetItem(QString::number(m_oData.max_torque())));
+    ui->vsMaxTorque->setValue(m_oData.max_torque());
+    ui->sbMaxTorque->setValue(m_oData.max_torque());
 
     ui->tawControlTable->setItem(11, 3, new QTableWidgetItem(QString::number(m_oData.status_return_level())));
     ui->cbReturnLevel->setCurrentIndex(m_oData.status_return_level());
@@ -248,20 +247,20 @@ void MainWindow::slotUpdateData()
     ui->tawControlTable->setItem(18, 3, new QTableWidgetItem(QString::number(m_oData.p_gain())));
     ui->sbPG->setValue(m_oData.p_gain());
 
-    ui->tawControlTable->setItem(19, 3, new QTableWidgetItem(QString::number(m_oData.goal_position_l())));
-    ui->dialGoalPosition->setValue(m_oData.goal_position_l());
+    ui->tawControlTable->setItem(19, 3, new QTableWidgetItem(QString::number(m_oData.goal_position())));
+    ui->dialGoalPosition->setValue(m_oData.goal_position());
 
-    ui->tawControlTable->setItem(20, 3, new QTableWidgetItem(QString::number(m_oData.moving_speed_l())));
-    ui->vsMovingSpeed->setValue(m_oData.moving_speed_l());
+    ui->tawControlTable->setItem(20, 3, new QTableWidgetItem(QString::number(m_oData.moving_speed())));
+    ui->vsMovingSpeed->setValue(m_oData.moving_speed());
 
-    ui->tawControlTable->setItem(21, 3, new QTableWidgetItem(QString::number(m_oData.torque_limit_l())));
-    ui->vsTorqueLimit->setValue(m_oData.torque_limit_l());
+    ui->tawControlTable->setItem(21, 3, new QTableWidgetItem(QString::number(m_oData.torque_limit())));
+    ui->vsTorqueLimit->setValue(m_oData.torque_limit());
 
-    ui->tawControlTable->setItem(22, 3, new QTableWidgetItem(QString::number(m_oData.present_position_l())));
-    ui->dialPresentPosition->setValue(m_oData.present_position_l());
+    ui->tawControlTable->setItem(22, 3, new QTableWidgetItem(QString::number(m_oData.present_position())));
+    ui->dialPresentPosition->setValue(m_oData.present_position());
 
-    ui->tawControlTable->setItem(23, 3, new QTableWidgetItem(QString::number(m_oData.present_speed_l())));
-    if (0 <= m_oData.present_position_l() && m_oData.present_speed_l() <= 1023)
+    ui->tawControlTable->setItem(23, 3, new QTableWidgetItem(QString::number(m_oData.present_speed())));
+    if (0 <= m_oData.present_position() && m_oData.present_speed() <= 1023)
     {
         ui->rbPSCW->setChecked(false);
         ui->rbPSCCW->setChecked(true);
@@ -271,49 +270,53 @@ void MainWindow::slotUpdateData()
         ui->rbPSCW->setChecked(true);
         ui->rbPSCCW->setChecked(false);
     }
-    ui->lblPresentSpeedValue->setText(QString::number(m_oData.present_speed_l()));
+    ui->lblPresentSpeedValue->setText(QString::number(m_oData.present_speed()));
 
-    ui->tawControlTable->setItem(24, 3, new QTableWidgetItem(QString::number(m_oData.present_load_l())));
+    ui->lblPresentLoadValue->setText(QString::number(m_oData.present_load()));
+    ui->lblPresentVoltageValue->setText(QString::number(m_oData.present_voltage()));
+
+    /* TODO implement in stacked widget
     ui->tawControlTable->setItem(25, 3, new QTableWidgetItem(QString::number(m_oData.present_voltage())));
     ui->tawControlTable->setItem(26, 3, new QTableWidgetItem(QString::number(m_oData.present_temp())));
     ui->tawControlTable->setItem(27, 3, new QTableWidgetItem(QString::number(m_oData.registered())));
     ui->tawControlTable->setItem(28, 3, new QTableWidgetItem(QString::number(m_oData.moving())));
     ui->tawControlTable->setItem(29, 3, new QTableWidgetItem(QString::number(m_oData.lock())));
-    ui->tawControlTable->setItem(30, 3, new QTableWidgetItem(QString::number(m_oData.punch_l())));
-    ui->tawControlTable->setItem(31, 3, new QTableWidgetItem(QString::number(m_oData.goal_acceleration())));
+    */
+
+    ui->sbPunch->setValue(m_oData.punch());
+    ui->sbGoalAcceleration->setValue(m_oData.goal_acceleration());
 }
 
 void MainWindow::initStackedWidgetConnects()
 {
-    connect(ui->cbID, SIGNAL(currentIndexChanged(int)), this, SLOT(slotValueChanged()));
-    connect(ui->cbBaudrate, SIGNAL(currentIndexChanged(int)), this, SLOT(slotValueChanged()));
-    connect(ui->cbReturnDelayTime, SIGNAL(currentIndexChanged(int)), this, SLOT(slotValueChanged()));
+    connect(ui->pbIDApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
 
-    connect(ui->vsCWAngleLimit, SIGNAL(valueChanged(int)), this, SLOT(slotValueChanged()));
-    connect(ui->sbCWAngleLimit, SIGNAL(valueChanged(int)), this, SLOT(slotValueChanged()));
+    connect(ui->pbBaudApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
 
-    connect(ui->vsCCWAngleLimit, SIGNAL(valueChanged(int)), this, SLOT(slotValueChanged()));
-    connect(ui->sbCCWAngleLimit, SIGNAL(valueChanged(int)), this, SLOT(slotValueChanged()));
+    connect(ui->pbReturnDelayTimeApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+
+    connect(ui->pbCWAngleLimitApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+    connect(ui->pbCCWAngleLimitApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
 
     //connect(ui->rbLEDON, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
 
-    connect(ui->dialGoalPosition, SIGNAL(valueChanged(int)), this, SLOT(slotValueChanged()));
+    //connect(ui->dialGoalPosition, SIGNAL(valueChanged(int)), this, SLOT(slotValueChanged()));
 }
 
 void MainWindow::data()
 {
-    m_oData.set_model_number_l(ui->tawControlTable->item(0, 3)->text().toInt());
+    m_oData.set_model_number(ui->tawControlTable->item(0, 3)->text().toInt());
     m_oData.set_firmware_version(ui->tawControlTable->item(1, 3)->text().toInt());
 
     m_oData.set_id(ui->cbID->currentText().toInt());
     m_oData.set_baud_rate(ui->cbBaudrate->currentText().toInt());
     m_oData.set_return_delay_time(ui->cbReturnDelayTime->currentText().toInt());
-    m_oData.set_cw_angle_limit_l(ui->vsCWAngleLimit->value());
-    m_oData.set_ccw_angle_limit_l(ui->vsCCWAngleLimit->value());
+    m_oData.set_cw_angle_limit(ui->vsCWAngleLimit->value());
+    m_oData.set_ccw_angle_limit(ui->vsCCWAngleLimit->value());
     m_oData.set_highest_temp_limit(ui->vsTemperatureLimit->value());
     m_oData.set_lowest_voltage_limit(ui->vsLowestVoltageLimit->value());
     m_oData.set_highest_voltage_limit(ui->vsHighestVoltageLimit->value());
-    m_oData.set_max_torque_l(ui->vsMaxTorque->value());
+    m_oData.set_max_torque(ui->vsMaxTorque->value());
     m_oData.set_status_return_level(ui->cbReturnLevel->currentIndex());
     m_oData.set_alarm_led(getAlarmLED());
     m_oData.set_alarm_shutdown(getAlarmShutdown());
@@ -322,24 +325,21 @@ void MainWindow::data()
     m_oData.set_d_gain(ui->sbDG->value());
     m_oData.set_i_gain(ui->sbIG->value());
     m_oData.set_p_gain(ui->sbPG->value());
-    qDebug() << ui->dialGoalPosition->value();
-    m_oData.set_goal_position_l(ui->dialGoalPosition->value());
-    qDebug() << m_oData.goal_position_l();
-    m_oData.set_moving_speed_l(ui->vsMovingSpeed->value());
-    m_oData.set_torque_limit_l(ui->vsTorqueLimit->value());
-    m_oData.set_present_position_l(ui->dialPresentPosition->value());
+    m_oData.set_goal_position(ui->dialGoalPosition->value());
+    m_oData.set_moving_speed(ui->vsMovingSpeed->value());
+    m_oData.set_torque_limit(ui->vsTorqueLimit->value());
+    m_oData.set_present_position(ui->dialPresentPosition->value());
 
-
-    ui->tawControlTable->setItem(22, 3, new QTableWidgetItem(QString::number(m_oData.present_position_l())));
-    ui->tawControlTable->setItem(23, 3, new QTableWidgetItem(QString::number(m_oData.present_speed_l())));
-    ui->tawControlTable->setItem(24, 3, new QTableWidgetItem(QString::number(m_oData.present_load_l())));
-    ui->tawControlTable->setItem(25, 3, new QTableWidgetItem(QString::number(m_oData.present_voltage())));
-    ui->tawControlTable->setItem(26, 3, new QTableWidgetItem(QString::number(m_oData.present_temp())));
-    ui->tawControlTable->setItem(27, 3, new QTableWidgetItem(QString::number(m_oData.registered())));
-    ui->tawControlTable->setItem(28, 3, new QTableWidgetItem(QString::number(m_oData.moving())));
-    ui->tawControlTable->setItem(29, 3, new QTableWidgetItem(QString::number(m_oData.lock())));
-    ui->tawControlTable->setItem(30, 3, new QTableWidgetItem(QString::number(m_oData.punch_l())));
-    ui->tawControlTable->setItem(31, 3, new QTableWidgetItem(QString::number(m_oData.goal_acceleration())));
+    m_oData.set_present_position(ui->tawControlTable->item(22, 3)->text().toInt());
+    m_oData.set_present_speed(ui->tawControlTable->item(23, 3)->text().toInt());
+    m_oData.set_present_load(ui->tawControlTable->item(24, 3)->text().toInt());
+    m_oData.set_present_voltage(ui->tawControlTable->item(25, 3)->text().toInt());
+    m_oData.set_present_temp(ui->tawControlTable->item(26, 3)->text().toInt());
+    m_oData.set_registered(ui->tawControlTable->item(27, 3)->text().toInt());
+    m_oData.set_moving(ui->tawControlTable->item(28, 3)->text().toInt());
+    m_oData.set_lock(ui->tawControlTable->item(29, 3)->text().toInt());
+    m_oData.set_punch(ui->sbPunch->value());
+    m_oData.set_goal_acceleration(ui->sbGoalAcceleration->value());
 }
 
 int MainWindow::getAlarmLED()
@@ -369,7 +369,7 @@ void MainWindow::set_connection(const int &ciConnection)
 
 }
 
-void MainWindow::connectToDynamixel(int ittyUSBPort, int iBaudRate) const
+void MainWindow::connectToDynamixel(int ittyUSBPort, int iBaudRate)
 {
     if (dxl_initialize(ittyUSBPort, iBaudRate) == 0)    // TODO MessageBox
     {
@@ -402,6 +402,9 @@ void MainWindow::connectToDynamixel(int ittyUSBPort, int iBaudRate) const
             if(dxl_get_result() == COMM_RXSUCCESS)
             {
                 qDebug() << "Found Dynamixel with ID: " << iID;
+
+                // Add to QList
+                m_qlServoList.append(new Servo(iID, iBaudRate));
 
                 QTreeWidgetItem* qtwiDynamixel = new QTreeWidgetItem;
                 qtwiDynamixel->setText(0, "Dynamixel ID: " + QString::number(iID));
