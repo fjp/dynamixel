@@ -32,8 +32,6 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     initStackedWidgetConnects();
-    int * iPointer = new int(5);
-    m_list.append(iPointer);
 }
 
 MainWindow::~MainWindow()
@@ -155,6 +153,7 @@ void MainWindow::slotValueChanged()
 
     m_qlServoList[m_iSelectedDynamixelID]->write_data(m_oData);
 
+    //slotUpdateData();
 }
 
 void MainWindow::slotSelectedControl(int row, int col)
@@ -272,18 +271,22 @@ void MainWindow::slotUpdateData()
     }
     ui->lblPresentSpeedValue->setText(QString::number(m_oData.present_speed()));
 
+    ui->tawControlTable->setItem(24, 3, new QTableWidgetItem(QString::number(m_oData.present_load())));
     ui->lblPresentLoadValue->setText(QString::number(m_oData.present_load()));
+
+    ui->tawControlTable->setItem(25, 3, new QTableWidgetItem(QString::number(m_oData.present_voltage())));
     ui->lblPresentVoltageValue->setText(QString::number(m_oData.present_voltage()));
 
-    /* TODO implement in stacked widget
-    ui->tawControlTable->setItem(25, 3, new QTableWidgetItem(QString::number(m_oData.present_voltage())));
     ui->tawControlTable->setItem(26, 3, new QTableWidgetItem(QString::number(m_oData.present_temp())));
     ui->tawControlTable->setItem(27, 3, new QTableWidgetItem(QString::number(m_oData.registered())));
     ui->tawControlTable->setItem(28, 3, new QTableWidgetItem(QString::number(m_oData.moving())));
-    ui->tawControlTable->setItem(29, 3, new QTableWidgetItem(QString::number(m_oData.lock())));
-    */
 
+    ui->tawControlTable->setItem(29, 3, new QTableWidgetItem(QString::number(m_oData.lock())));
+
+    ui->tawControlTable->setItem(30, 3, new QTableWidgetItem(QString::number(m_oData.punch())));
     ui->sbPunch->setValue(m_oData.punch());
+
+    ui->tawControlTable->setItem(31, 3, new QTableWidgetItem(QString::number(m_oData.goal_acceleration())));
     ui->sbGoalAcceleration->setValue(m_oData.goal_acceleration());
 }
 
@@ -298,15 +301,47 @@ void MainWindow::initStackedWidgetConnects()
     connect(ui->pbCWAngleLimitApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
     connect(ui->pbCCWAngleLimitApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
 
-    //connect(ui->rbLEDON, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+    connect(ui->pbTemperatureLimitApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
 
-    //connect(ui->dialGoalPosition, SIGNAL(valueChanged(int)), this, SLOT(slotValueChanged()));
+    connect(ui->pbLowestVoltageLimitApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+    connect(ui->pbHighestVoltageLimitApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+
+    connect(ui->pbMaxTorqueApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+    connect(ui->pbReturnLevel, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+
+    connect(ui->pbAlarmLEDApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+    connect(ui->pbAlarmShutdownApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+
+    connect(ui->rbTEON, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+    connect(ui->rbTEOFF, SIGNAL(clicked()), this, SLOT(slotValueChanged())); // TODO handle with toggle
+
+    connect(ui->rbLEDON, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+    connect(ui->rbLEDOFF, SIGNAL(clicked()), this, SLOT(slotValueChanged())); // TODO handle with toggle
+
+    connect(ui->pbDGApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+    connect(ui->pbIGApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+    connect(ui->pbPGApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+
+    // TODO Goal Pos Center Pos
+    connect(ui->dialGoalPosition, SIGNAL(valueChanged(int)), this, SLOT(slotValueChanged()));
+
+    connect(ui->pbMovingSpeedApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+    connect(ui->pbTorqueLimitApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+
+    connect(ui->pbLock, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+
+    connect(ui->pbPunchApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
+
+    connect(ui->pbGAApply, SIGNAL(clicked()), this, SLOT(slotValueChanged()));
 }
 
 void MainWindow::data()
 {
-    m_oData.set_model_number(ui->tawControlTable->item(0, 3)->text().toInt());
-    m_oData.set_firmware_version(ui->tawControlTable->item(1, 3)->text().toInt());
+    if (ui->tawControlTable->item(0, 3))
+        m_oData.set_model_number(ui->tawControlTable->item(0, 3)->text().toInt());
+
+    if (ui->tawControlTable->item(1, 3))
+        m_oData.set_firmware_version(ui->tawControlTable->item(1, 3)->text().toInt());
 
     m_oData.set_id(ui->cbID->currentText().toInt());
     m_oData.set_baud_rate(ui->cbBaudrate->currentText().toInt());
@@ -330,14 +365,31 @@ void MainWindow::data()
     m_oData.set_torque_limit(ui->vsTorqueLimit->value());
     m_oData.set_present_position(ui->dialPresentPosition->value());
 
-    m_oData.set_present_position(ui->tawControlTable->item(22, 3)->text().toInt());
-    m_oData.set_present_speed(ui->tawControlTable->item(23, 3)->text().toInt());
-    m_oData.set_present_load(ui->tawControlTable->item(24, 3)->text().toInt());
-    m_oData.set_present_voltage(ui->tawControlTable->item(25, 3)->text().toInt());
-    m_oData.set_present_temp(ui->tawControlTable->item(26, 3)->text().toInt());
-    m_oData.set_registered(ui->tawControlTable->item(27, 3)->text().toInt());
-    m_oData.set_moving(ui->tawControlTable->item(28, 3)->text().toInt());
-    m_oData.set_lock(ui->tawControlTable->item(29, 3)->text().toInt());
+    if (ui->tawControlTable->item(22, 3))
+        m_oData.set_present_position(ui->tawControlTable->item(22, 3)->text().toInt());
+
+    if (ui->tawControlTable->item(23, 3))
+        m_oData.set_present_speed(ui->tawControlTable->item(23, 3)->text().toInt());
+
+    if (ui->tawControlTable->item(24, 3))
+        m_oData.set_present_load(ui->tawControlTable->item(24, 3)->text().toInt());
+
+    if (ui->tawControlTable->item(25, 3))
+        m_oData.set_present_voltage(ui->tawControlTable->item(25, 3)->text().toInt());
+
+    if (ui->tawControlTable->item(22, 3))
+        m_oData.set_present_temp(ui->tawControlTable->item(26, 3)->text().toInt());
+
+    if (ui->tawControlTable->item(27, 3))
+        m_oData.set_registered(ui->tawControlTable->item(27, 3)->text().toInt());
+
+    if (ui->tawControlTable->item(28, 3))
+        m_oData.set_moving(ui->tawControlTable->item(28, 3)->text().toInt());
+
+    if (ui->tawControlTable->item(29, 3))
+        m_oData.set_lock(ui->tawControlTable->item(29, 3)->text().toInt());
+
+
     m_oData.set_punch(ui->sbPunch->value());
     m_oData.set_goal_acceleration(ui->sbGoalAcceleration->value());
 }

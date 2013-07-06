@@ -54,18 +54,28 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
     //static int goal_pos = data.goal_position_l();
     int iID = m_oData.id();
 
+    // EEPROM
+    //dxl_write_byte(iID, 3, data.id());
+    //dxl_write_byte(iID, 4, data.baud_rate());
+    //dxl_write_byte(iID, 5, data.return_delay_time());
+
     dxl_write_word(iID, 6, data.cw_angle_limit());
-    //dxl_write_word(iID, 7, data.cw_angle_limit_h());
     dxl_write_word(iID, 8, data.ccw_angle_limit());
-    //dxl_write_word(iID, 9, data.ccw_angle_limit_h());
 
-    dxl_write_word(iID, 12, data.lowest_voltage_limit());
-    dxl_write_word(iID, 13, data.highest_voltage_limit());
+    dxl_write_byte(iID, 11, data.highest_temp_limit());
+
+    dxl_write_byte(iID, 12, data.lowest_voltage_limit());
+    dxl_write_byte(iID, 13, data.highest_voltage_limit());
+
     dxl_write_word(iID, 14, data.max_torque());
-    //dxl_write_word(iID, 15, data.max_torque_h());
 
 
-    dxl_write_word(iID, 24, data.torque_enable());
+    dxl_write_byte(iID, 16, data.status_return_level());
+    dxl_write_byte(iID, 17, data.alarm_led());
+    dxl_write_byte(iID, 18, data.alarm_shutdown());
+
+    // RAM
+    dxl_write_byte(iID, 24, data.torque_enable());
 
     /* DYNAMIXEL AX
     dxl_write_word(iID, 26, data.cw_compliance_margin());
@@ -121,25 +131,18 @@ void Servo::write_data(Data const& data) const {  // , double load) const{
 */
 
     dxl_write_word(iID, 30, data.goal_position());
-    //dxl_write_word(iID, 31, data.goal_position_h());
 
     dxl_write_word(iID, 32, data.moving_speed());
-    //dxl_write_word(iID, 33, data.moving_speed_h());
 
     dxl_write_word(iID, 34, data.torque_limit());
-    //dxl_write_word(iID, 35, data.torque_limit_h());
 
     //dxl_write_word(iID, 47, data.lock());
 
     dxl_write_word(iID, 48, data.punch());
-    //dxl_write_word(iID, 49, data.punch_h());
 
+    //dxl_write_word(iID, 34, control_torque(data.torque_limit(), data.goal_position()));
 
-    dxl_write_word(iID, 34, control_torque(data.torque_limit(), data.goal_position()));
-    //dxl_write_word(iID, 34, 1023);
-
-    // TODO: goal acceleration, add also in gui
-
+    dxl_write_byte(iID, 73, data.goal_acceleration());
 
 }
 

@@ -724,7 +724,7 @@
                         <number>4095</number>
                        </property>
                        <property name="value">
-                        <number>4095</number>
+                        <number>0</number>
                        </property>
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
@@ -833,6 +833,9 @@
                        <property name="maximum">
                         <number>4095</number>
                        </property>
+                       <property name="value">
+                        <number>4095</number>
+                       </property>
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
                        </property>
@@ -937,6 +940,9 @@
                     <layout class="QHBoxLayout" name="horizontalLayout_10">
                      <item>
                       <widget class="QSlider" name="vsTemperatureLimit">
+                       <property name="value">
+                        <number>80</number>
+                       </property>
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
                        </property>
@@ -1037,6 +1043,12 @@
                     <layout class="QHBoxLayout" name="horizontalLayout_12">
                      <item>
                       <widget class="QSlider" name="vsHighestVoltageLimit">
+                       <property name="maximum">
+                        <number>250</number>
+                       </property>
+                       <property name="value">
+                        <number>140</number>
+                       </property>
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
                        </property>
@@ -1144,6 +1156,12 @@
                     <layout class="QHBoxLayout" name="horizontalLayout_14">
                      <item>
                       <widget class="QSlider" name="vsLowestVoltageLimit">
+                       <property name="maximum">
+                        <number>250</number>
+                       </property>
+                       <property name="value">
+                        <number>60</number>
+                       </property>
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
                        </property>
@@ -1203,7 +1221,7 @@
                      <item>
                       <widget class="QLabel" name="lblLowestVoltageLimitVolt">
                        <property name="text">
-                        <string>14V</string>
+                        <string>6V</string>
                        </property>
                       </widget>
                      </item>
@@ -1258,6 +1276,9 @@
                      <item>
                       <widget class="QSlider" name="vsMaxTorque">
                        <property name="maximum">
+                        <number>1023</number>
+                       </property>
+                       <property name="value">
                         <number>1023</number>
                        </property>
                        <property name="orientation">
@@ -1430,6 +1451,9 @@
                     <property name="text">
                      <string>Overload</string>
                     </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -1450,6 +1474,9 @@
                    <widget class="QCheckBox" name="cbALOverheating">
                     <property name="text">
                      <string>Overheating</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>
@@ -1512,6 +1539,9 @@
                     <property name="text">
                      <string>Overload</string>
                     </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -1532,6 +1562,9 @@
                    <widget class="QCheckBox" name="cbASOverheating">
                     <property name="text">
                      <string>Overheating</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>
@@ -1587,6 +1620,9 @@
                     <property name="text">
                      <string>ON</string>
                     </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -1634,6 +1670,9 @@
                     <property name="text">
                      <string>OFF</string>
                     </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
                    </widget>
                   </item>
                  </layout>
@@ -1663,7 +1702,11 @@
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_40">
                   <item>
-                   <widget class="QSpinBox" name="sbDG"/>
+                   <widget class="QSpinBox" name="sbDG">
+                    <property name="maximum">
+                     <number>254</number>
+                    </property>
+                   </widget>
                   </item>
                   <item>
                    <widget class="QPushButton" name="pbDGApply">
@@ -1699,7 +1742,11 @@
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_42">
                   <item>
-                   <widget class="QSpinBox" name="sbIG"/>
+                   <widget class="QSpinBox" name="sbIG">
+                    <property name="maximum">
+                     <number>254</number>
+                    </property>
+                   </widget>
                   </item>
                   <item>
                    <widget class="QPushButton" name="pbIGApply">
@@ -1735,7 +1782,11 @@
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_44">
                   <item>
-                   <widget class="QSpinBox" name="sbPG"/>
+                   <widget class="QSpinBox" name="sbPG">
+                    <property name="maximum">
+                     <number>254</number>
+                    </property>
+                   </widget>
                   </item>
                   <item>
                    <widget class="QPushButton" name="pbPGApply">
@@ -1832,6 +1883,9 @@
                      <item>
                       <widget class="QSlider" name="vsMovingSpeed">
                        <property name="maximum">
+                        <number>1023</number>
+                       </property>
+                       <property name="value">
                         <number>1023</number>
                        </property>
                        <property name="orientation">
@@ -1951,6 +2005,12 @@
                     <layout class="QHBoxLayout" name="horizontalLayout_18">
                      <item>
                       <widget class="QSlider" name="vsTorqueLimit">
+                       <property name="maximum">
+                        <number>1023</number>
+                       </property>
+                       <property name="value">
+                        <number>1023</number>
+                       </property>
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
                        </property>
